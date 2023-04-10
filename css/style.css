@@ -1,0 +1,327 @@
+/* COSAS A SOLUCIONAR:-
+-corregir/cambiar logo: backbround color y recortarlo
+-el NAV (con el :hover , al ocupar mas espacio por el ::after se deforman el resto de los botones )
+-Mejorar el sistema de clases.
+-las img de img--carousel, una de ellas si estuviera centrada quedaria mejor.
+-acomodar textos de 
+*/
+
+
+
+/* ATRIBUTOS GENERALES - ROOT - BTN STYLE */
+:root {
+    --main-font-color: #121212ff;
+    --main-font-link:  #000000;
+    --alt-font-color: #FFFBF5;
+    --main-background-color: #ffffff; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn  {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER Y NAVBAR */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header--container  {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-background-color);
+    height: 10vh;
+    padding: 0 2em;
+}
+
+.logo__img {
+    border: 1px solid black;
+    width: 6.7em;
+}
+
+
+.nav--container {
+    height: auto;
+    width: 40%;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__btn {
+    position: relative;
+}
+                         /* EFECTO NAV_BTN */
+.nav__btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -0.2em;
+    height: 0.1em;
+    background-color: var(--main-font-link);
+    transform: scale(0);
+    transition: all 250ms ease-in-out;
+}
+
+.nav__btn:hover {
+    font-size: 120%;
+    font-weight: 700;
+} 
+
+.nav__btn:hover::after {
+    transform: scale(1);
+} 
+
+.shop--container {
+    /* border: 1px solid blueviolet; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    object-fit: cover;
+    width: 5em;
+}
+
+.shop__item .img__login {
+    width: 1.2em;
+}
+
+.img__cart {
+    width: 1.5em;
+}
+    
+
+/*  MAIN */
+
+.text--wrapper {
+    color: var(--alt-font-color);
+    display: flex;
+    justify-content: flex-start;
+    background-color: #EA5455;
+    margin: 1em 0 0 0;
+    padding: 0.4em 0; 
+    overflow: hidden;
+}
+
+.animated__text {
+    font-size: 150%;
+    font-weight:700;
+    font-style: oblique;
+    white-space: nowrap;
+    padding: 0 2em;
+    letter-spacing: 1.5px;
+    animation: move-right-left 6000ms linear infinite;
+}
+
+@keyframes move-right-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }  
+}
+
+.main--section {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-flow: row wrap;
+    overflow: hidden;
+    
+}
+
+section .main {
+    background-color: rgb(178, 233, 178);
+    border: 1px solid black;
+}
+
+.carousel--main--section {
+    grid-row: 1 / span 2;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.carousel--main--section img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.top--main--section {
+    grid-row: 1 / span 1;
+}
+
+.top--main--section h2 {
+    border: 1px solid forestgreen;
+    font-size: 4em;
+    text-align: left;
+    padding: 1em 0 0 1.5em;
+}
+
+.top--main--section p {
+    border: 1px solid blue;
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-top: 1em;
+    padding: 0.5em 0 0.5em 5em;
+}
+
+.botton--main--section {
+    grid-row: 2 / span 1;
+   
+}
+
+.shop__btn {
+    border: 1px solid blue;
+    color: var(--alt-font-color);
+    background-color: brown;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-left: 5em;
+    padding: 1em 2em;
+}
+
+/* BRAND SECTION */
+.brand--title {
+    /* border: 1px solid lightcoral; */
+    text-align: center;
+    margin: 6em 0 3em;
+}
+
+.brand__text {
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.brand--grid {
+    /* border: 1px solid lightgreen; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+    flex-wrap: wrap;
+    padding: 0 1em;
+    margin-bottom: 5em;
+    justify-items:center;
+
+}
+
+.brand--box {
+    /* border: 1px solid lightgreen; */
+    transition: transform 150ms ease-in-out;
+} 
+
+.brand--box:hover {
+    transform: scale(1.1);
+}
+
+.brand--box img {
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/* newsletter section */
+.subscribe--container {
+    border-top: 1px solid lightgrey;
+    position: relative;
+    height: 15em;
+    width: 100%;
+}
+
+.subscribe--form {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 40em;
+}
+
+.subscribe--form h2 {
+    font-size: 1.4em;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.subscribe--email {
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+    flex-flow: row wrap;
+    margin-bottom: 1.5em;
+    width: 100%;
+}
+
+.subscribe--email #email {
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 5px 0 0 5px;
+    padding: 0.7em 0 0.7em 1.6em;
+    flex-grow: 2;
+}
+
+.subscribe--email #submit {
+    border: 1px solid #000000;
+    color: var(--alt-font-color);
+    background-color: #000000;
+    border-radius: 0 5px 5px 0;
+    padding: 0.7em 3em;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+.subscribe--email #submit:hover {
+    background-color: rgb(58, 58, 59);
+    border: 1px solid  rgb(58, 58, 59);
+}
+
+.subscribe--checkbox  {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    gap: 0.5em;
+}
+
+/* AGREGAR :HOVER para checkbox */
+
+
+@media only screen and (max-width: 600px) {
+    #email,#submit {
+        width: 100%;
+        border-radius: 5px; /*NO PUEDO HACER QUE FUNCIONE ESTA PROPIEDAD */
+    }
+
+}
+
+
+
