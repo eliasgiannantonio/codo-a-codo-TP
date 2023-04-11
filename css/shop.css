@@ -1,0 +1,214 @@
+/* BARRA DE BUSQUEDA */
+.busqueda {
+    width: 100%;
+    padding: 2rem;
+}
+
+.search {
+    border-radius: 10px;
+    outline: 2px solid #00aefe;
+    border: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #ebf3ff;
+    outline-offset: 3px;
+    padding: 10px 1rem;
+    transition: 0.25s;
+    width: 100%;
+}
+
+.search:focus {
+    outline-offset: 5px;
+    background-color: #e7e7e7
+}
+
+/* WRAPER*/
+.container {
+    width: 100%;
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+
+/* FILTRO*/
+.layout_filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 0px solid black;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 3%;
+}
+
+.titulos_filtro{
+    font-weight: bold;
+    padding-right: 6rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    color: #818181;
+}
+
+.marcas, .categoria, .precio {
+    padding-left: 2rem;
+    font-weight: 500;
+    list-style: none;
+    color: #93ddff;
+}
+
+.marcas li, .categoria li,.precio li{
+    padding-top: 1rem;
+}
+
+.titulos_filtro div{
+    display: flex;
+}
+
+.titulos_filtro div input{
+    width: 6rem;
+}
+
+/* CATALOGO GRID */
+.layout_catalogo div {
+    border: 0px solid black;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 3%;
+
+}
+
+.layout_catalogo {
+    width: 100%;
+    height: 768px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: stretch;
+    gap: 15px;
+}
+
+
+.zapatilla {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto_zapatilla {
+    max-width: 200px;
+}
+
+/* BOTON DE COMPRA*/
+.compra {
+    --width: 50%;
+    --height: 35px;
+    --button-color: #1163ff;
+    width: var(--width);
+    height: var(--height);
+    background: var(--button-color);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    font-family: "Arial";
+    transition: background 0.3s;
+}
+
+.compra::before {
+    position: absolute;
+    content: attr(data-tooltip);
+    width: var(--tooltip-width);
+    height: var(--tooltip-height);
+    background-color: var(--tooltip-color);
+    font-size: 0.9rem;
+    border-radius: .25em;
+    line-height: var(--tooltip-height);
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+    left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.compra::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    left: calc(50% - 10px);
+    bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.compra svg{
+    fill: white;
+}
+
+.compra::after,
+.compra::before {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-wrapper,
+.text,
+.icon {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    color: #fff;
+}
+
+.text {
+    top: 0
+}
+
+.text,
+.icon {
+    transition: top 0.5s;
+}
+
+.icon {
+    color: #fff;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.compra:hover {
+    background: #6c18ff;
+}
+
+.compra:hover .text {
+    top: -100%;
+}
+
+.compra:hover .icon {
+    top: 0;
+}
+
+.compra:hover:before,
+.compra:hover:after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.compra:hover:after {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.compra:hover:before {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+
