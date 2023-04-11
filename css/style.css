@@ -1,6 +1,7 @@
 /* COSAS A SOLUCIONAR:-
 -corregir/cambiar logo: backbround color y recortarlo
--el NAV (con el :hover , al ocupar mas espacio por el ::after se deforman el resto de los botones )
+
+
 -Mejorar el sistema de clases.
 -las img de img--carousel, una de ellas si estuviera centrada quedaria mejor.
 -acomodar textos de 
@@ -58,22 +59,25 @@ header {
     width: 6.7em;
 }
 
-
-.nav--container {
-    height: auto;
+.nav--container{
     width: 40%;
 }
-
 .nav__list {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .nav__btn {
+    /* border: 1px solid pink; */
+    width: 6em;
+    text-align: center;
+}
+
+.btn__link {
     position: relative;
 }
                          /* EFECTO NAV_BTN */
-.nav__btn::after {
+.btn__link::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -85,12 +89,12 @@ header {
     transition: all 250ms ease-in-out;
 }
 
-.nav__btn:hover {
-    font-size: 120%;
+.btn__link:hover {
     font-weight: 700;
+
 } 
 
-.nav__btn:hover::after {
+.btn__link:hover::after {
     transform: scale(1);
 } 
 
@@ -143,22 +147,25 @@ header {
     }  
 }
 
-.main--section {
+.main--section--container {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-flow: row wrap;
-    overflow: hidden;
+    height: 90vh;
+    grid-template-areas: 'carousel top'
+                        'carousel bottom';
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr 1fr;
+    /* overflow: hidden; */
     
 }
 
-section .main {
+/* section .main {
     background-color: rgb(178, 233, 178);
     border: 1px solid black;
-}
+} */
 
 .carousel--main--section {
-    grid-row: 1 / span 2;
+    grid-area: carousel;
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
@@ -170,37 +177,55 @@ section .main {
 }
 
 .top--main--section {
-    grid-row: 1 / span 1;
+    /* border:1px solid rgb(99, 17, 31); */
+    grid-area: top;
+    display: grid;
+    justify-content: strech;
+    align-items: center;
+    align-content: end;
 }
 
 .top--main--section h2 {
-    border: 1px solid forestgreen;
+    /* border: 1px solid forestgreen; */
     font-size: 4em;
-    text-align: left;
-    padding: 1em 0 0 1.5em;
+    margin: 0 1.5em 1em;
+    position: relative;
 }
+
+.top--main--section h2::after {
+    position: absolute;
+    content: '';
+    background-color: var(--main-font-link);
+    height: 0.1em;
+    width: 35%;
+    left: 0;
+    bottom: -0.3em
+
+}
+
 
 .top--main--section p {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     font-size: 1.2em;
+    margin: 0 4.9em 3em;
     font-weight: 300;
-    margin-top: 1em;
-    padding: 0.5em 0 0.5em 5em;
 }
 
-.botton--main--section {
-    grid-row: 2 / span 1;
-   
+.bottom--main--section {
+    grid-area: bottom;
+}
+
+.btn--container {
+    height: 100%;
 }
 
 .shop__btn {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     color: var(--alt-font-color);
     background-color: brown;
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 700;
-    margin-left: 5em;
-    padding: 1em 2em;
+    margin-left: 2em;
 }
 
 /* BRAND SECTION */
@@ -316,11 +341,54 @@ section .main {
 
 
 @media only screen and (max-width: 600px) {
-    #email,#submit {
-        width: 100%;
-        border-radius: 5px; /*NO PUEDO HACER QUE FUNCIONE ESTA PROPIEDAD */
+    
+    /* header section */
+    
+    .nav--container {
+        display: none;
+    }
+    
+    /* Main section */
+    .main--section--container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        height: 110vh;
     }
 
+    .carousel--main--section {
+        height: 60vh;
+        
+    }
+
+    .top--main--section, .bottom--main--section {
+        width: 100%;
+    }
+    .top--main--section h2 {
+        border: 1px solid forestgreen;
+        font-size: 3.5em;
+        letter-spacing: 0em;
+        text-align: center;
+        padding: 0 0.4em;
+        margin: 1em 0;
+    }
+    .top--main--section h2::after {
+        left: 30%;
+    }
+
+    .top--main--section p {
+        margin: 0;
+    }
+    
+    .subscribe--email {
+        gap: 1em;
+    }
+    .subscribe--email button#submit, .subscribe--email input#email {
+        border-radius: 5px;
+        width: 100%;
+    }
 }
 
 
