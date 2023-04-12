@@ -55,8 +55,9 @@ header {
 }
 
 .logo__img {
-    border: 1px solid black;
-    width: 6.7em;
+    width: 10em;
+    position: fixed;
+    top: 7px;
 }
 
 .nav--container{
