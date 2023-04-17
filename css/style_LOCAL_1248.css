@@ -56,14 +56,8 @@ header {
     width: 10em;
 }
 .logo__img {
-<<<<<<< HEAD
     width: 100%;
     object-fit: cover;
-=======
-    width: 10em;
-    position: fixed;
-    top: 7px;
->>>>>>> main
 }
 
 .nav--container{
