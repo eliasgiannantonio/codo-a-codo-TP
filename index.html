@@ -20,8 +20,10 @@
                     <img class="logo__img" src="img/logo.svg" alt="Sneakers Logo">
                 </a>
             </div>
+            
             <div class="nav--container">
-                <nav class="nav">
+                <nav class="nav" >
+                    <button id="cerrar_menu"><img src="./img/hamburguesa_close.svg" alt=""></button>
                     <ul class="nav__list">
                         <li class="btn nav__btn"><a class="btn__link" href="">HOME</a></li>
                         <li class="btn nav__btn"><a class="btn__link" href="./shop.html">SHOP</a> </li>
@@ -34,6 +36,7 @@
                 <a href="" class="shop__item"><img class="img__login" src="img/ico_user.png" alt="login"></a>
                 <a href="" class="shop__item">|</a>
                 <a href="" class="shop__item"><img class="img__cart" src="img/ico_shopping_cart.png" alt="cart"></a>
+                <button id="abrir_menu"><img src="./img/hamburguesa_open.svg" alt=""></button>
             </div>
         </div>
     </header>
@@ -48,9 +51,25 @@
             <section class="main--section">
                 <div class="main--section--container">
                     <div class="carousel--main--section">
-                        <img class="img img_1" src="img/web_nike_sneaker.jpg" alt="img">
-                        <img class="img img_2" src="img/web_adidas_sneaker_2.jpg" alt="img">
-                        <img class="img img_3" src="img/web_jordan_sneaker_2.jpg" alt="img">
+                        <button class="carousel__button carousel__button--left">
+                            <img src="img/ico_arrow_left.svg" alt="left arrow">
+                        </button>
+                        <div class="carousel__track-container">
+                            <ul class="carousel__track">
+                                <li class="carousel__slide">
+                                    <img class="img carousel__img" src="img/web_nike_sneaker.jpg" alt="img">
+                                </li>
+                                <li class="carousel__slide">
+                                    <img class="img carousel__img" src="img/web_adidas_sneaker_2.jpg" alt="img">
+                                </li>
+                                <li class="carousel__slide">
+                                    <img class="img carousel__img" src="img/web_jordan_sneaker_2.jpg" alt="img">
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="carousel__button carousel__button--right">
+                            <img src="img/ico_arrow_right.svg" alt="right arrow">
+                        </button>
                     </div>
                     <div class="main top--main--section">
                         <h2>Step up your<br>urban game</h2>
@@ -92,13 +111,56 @@
                             <input type="checkbox" name="terms_agree" id="terms__agree" required>
                             <p>He leído y acepto la Política de privacidad y las Condiciones de uso</p>
                         </div>
-                    </form>
-                
-                    
+                    </form>         
                 </div>
             </section>
         </div>
     </main>
-    
+    <footer>
+        <div class="footer--container">
+            <div class="grid--footer--container">
+                <div class="grid__column">
+                    <h4 class="grid__column-title">ASISTENCIA</h3>
+                    <ul>
+                        <li class="grid__column-item"><a href="#">Ayuda y Servicio al Cliente</a></li>
+                        <li class="grid__column-item"><a href="#">Seguimiento de Pedidos</a></li>
+                        <li class="grid__column-item"><a href="#">Cambios y Devoluciones</a></li>
+                        <li class="grid__column-item"><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="grid__column">
+                    <h4 class="grid__column-title">POLITICAS</h3>
+                    <ul>
+                        <li class="grid__column-item"><a href="#">Condiciones Generales</a></li>
+                        <li class="grid__column-item"><a href="#">Politica de Privacidad</a></li>
+                        <li class="grid__column-item"><a href="#">Politica de Cookies</a></li>
+                        <li class="grid__column-item"><a href="#">Terminos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="grid__column grid__column--split">
+                    <div class="column--social">
+                        <h4 class="grid__column-title">SEGUINOS</h3>
+                        <ul>
+                            <li class="grid__column-item"><a href="#"><img src="img/ico_instagram_white.svg" alt="Instagram"></a></li>
+                            <li class="grid__column-item"><a href="#"><img src="img/ico_facebook_white.svg" alt="Facebook"></a></li>
+                            <li class="grid__column-item"><a href="#"><img src="img/ico_youtube_white.svg" alt="Youtube"></a></li>
+                            <li class="grid__column-item"><a href="#"><img src="img/ico_whatsapp_white.svg" alt="Whatsapp"></a></li>
+                        </ul>
+                    </div> 
+                    <div class="column--payment">
+                        <h4 class="grid__column-title">MEDIOS DE PAGO</h3>
+                        <ul>
+                            <li class="grid__column-item">Visa</li>
+                            <li class="grid__column-item">Master</li>
+                            <li class="grid__column-item">Cabal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom--fotter"><h4>© SNEAKER STORE, SL - Todos los derechos reservados</h4></div>
+        </div>
+    </footer>
+    <script src="js/carousel.js"></script>
+    <script src="./js/script.js"></script>    
 </body>
 </html>
