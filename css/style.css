@@ -611,22 +611,6 @@ header {
         height: 2em;
     }
 
-    }
-
-    .grid--footer--container {
-        display: grid;
-        grid-template-columns: 1fr;
-        height: 85%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .grid__column {
-        margin: 0;
-        height: 2em;
-    }
-
     .grid__column-title {
         text-align: center;
     }
