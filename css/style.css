@@ -43,29 +43,33 @@ header {
 }
 
 .header--container  {
-    /* border: 1px solid red; */
+    width: 100vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: var(--main-background-color);
     height: 10vh;
-    padding: 0 2em;
-    gap: 20%;
-}
-.logo--container {
-    width: 10em;
-}
-.logo__img {
-    width: 100%;
-    object-fit: cover;
-    width: 10em;
-    position: fixed;
-    top: 7px;
 }
 
-.nav--container{
-    width: 40%;
+.logo__img {
+    object-fit: cover;
+    width: 10rem;
 }
+
+.logo--container{
+    max-width: 39rem;
+    display: flex;
+    flex-shrink: 0.7;
+    justify-content: center;
+}
+
+.logo--container a{
+    display: flex;
+    height: 100%;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
 
 #abrir_menu, #cerrar_menu {
     display: none;
@@ -116,13 +120,16 @@ header {
 } 
 
 .shop--container {
-    /* border: 1px solid blueviolet; */
     display: flex;
     justify-content: right;
     align-items: center;
     object-fit: cover;
-    gap: 9%;
-    width: 10em;
+    gap: 3px;
+}
+
+.shop--container:nth-child(3){
+    font-weight: 600;
+    height: 20px;
 }
 
 .shop__item .img__login {
@@ -433,12 +440,12 @@ header {
     padding: 2em 0 1em 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 680px) {
     
     /* header section */
 
     .logo__img{
-        top: 13px;
+        top: 27px;
     }
     
      .nav--container {
