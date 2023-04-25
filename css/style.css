@@ -21,16 +21,13 @@
     font-size: 16px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    list-style: none;
 }
 
 img {
     max-width: 100%;
 }
-
-li  {
-    list-style: none;
-}
-
+  
 a {
     text-decoration: none;
 }
@@ -43,12 +40,13 @@ header {
 }
 
 .header--container  {
-    width: 100vw;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--main-background-color);
     height: 10vh;
+    padding: 0 3%;
 }
 
 .logo__img {
@@ -80,7 +78,6 @@ header {
 #cerrar_menu {
     filter: invert(100%);
 }
-
 
 .nav__list {
     display: flex;
@@ -121,6 +118,7 @@ header {
 
 .shop--container {
     display: flex;
+    width: 10em;
     justify-content: right;
     align-items: center;
     object-fit: cover;
@@ -411,10 +409,12 @@ header {
 
 .grid__column-title {
     margin-bottom: 0.5em;
+    font-size: 0.9em;
 }
 
 .grid__column-item a {
     color: var(--alt-font-color);
+    font-size: 0.8em;
 }
 
 .grid__column--split {
@@ -428,10 +428,9 @@ header {
     display: flex;
     padding: 0.3em 0;
     gap: 0.8em;
-
 }
 
-.column--social img {
+.card--img,.social--img {
     height: 1.7em;
 }
 
