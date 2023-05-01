@@ -139,7 +139,7 @@ main .botones_filtro{
 }
 /* =====julian: comentado, no cumple ninguna funcion */
 /* .grid_wrapper_products{
-    width:100;
+    width:100%;
 } */
 .product_container {
     /* border: 1px solid red; */
@@ -168,6 +168,7 @@ main .botones_filtro{
 
 .card_product img {
     scale: 0.9;
+    width: 100%;
 }
 
 .card_product .modelo {
