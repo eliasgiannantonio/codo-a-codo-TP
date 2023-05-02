@@ -31,16 +31,19 @@ a {
 /* HEADER Y NAVBAR */
 header {
     position: sticky;
+    background-color: var(--main-background-color);
     top: 0;
     z-index: 100;
 }
 
 .header--container  {
     width: 100%;
+    max-width: 1800px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background-color: var(--main-background-color);
+    margin: 0 auto;
     height: 10vh;
     padding: 0 3%;
 }
@@ -140,6 +143,8 @@ header {
 .text--wrapper {
     color: var(--alt-font-color);
     display: flex;
+    max-width: 1800px;
+    margin: 0 auto;
     justify-content: flex-start;
     background-color: #EA5455;
     padding: 0.4em 0; 
@@ -166,8 +171,11 @@ header {
 }
 
 .main--section--container {
+    
     display: grid;
     width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
     height: 35em;
     grid-template-areas: 'carousel top'
                         'carousel bottom';
@@ -301,9 +309,10 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
     flex-wrap: wrap;
-    padding: 0 1em;
-    margin-bottom: 5em;
     justify-items:center;
+    padding: 0 1em;
+    max-width: 1800px;
+    margin: 0 auto  5em auto;
 }
 
 .brand--box {
@@ -326,6 +335,8 @@ header {
     position: relative;
     height: 15em;
     width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 .subscribe--form {
@@ -395,6 +406,9 @@ header {
 .footer--container {
     background-color: #000000;
     color: var(--alt-font-color);
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 .grid--footer--container {

@@ -1,0 +1,76 @@
+:root {
+    --main-font-color: #121212ff;
+    --main-font-link:  #000000;
+    --alt-font-color: #FFFBF5;
+    --main-background-color: #ffffff;
+    --primary-color: #EA5455;
+    --secondary-color: #002B5B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ======== NOSOTROS SECTION ===== */
+.nosotros--container {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto; 
+}
+
+.nosotros--text, i {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    line-height: 1.8rem;
+    text-align: justify;
+    margin: auto 0;
+    padding: 0 2em 0 2em;
+
+}
+
+
+.tienda--img {
+    width: 100%;
+    max-width: 1800px;
+    object-fit: cover;
+}
+
+.tienda--container {
+    display: grid;
+    width: 100%;
+}
+
+
+
+
+@media only screen and (max-width: 780px) {
+    .nosotros--container {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .nosotros--text, i {
+        margin: auto 0;
+        padding: 2em 1em 3em 1em;
+    }
+
+
+
+    .tienda--container {
+
+    }
+}
