@@ -414,10 +414,11 @@ header {
 .grid--footer--container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 0 10em;
-    height: 30vh;
-    width: 100%;
-    gap: 1em;
+    padding: 0 3em;
+    margin: 0 auto;
+    height: 12rem;
+    width: 90%;
+    gap: 3em;
 }
 
 .grid__column {
@@ -573,7 +574,6 @@ header {
         object-fit: cover;    
     }
 
-
     .top--main--section, .bottom--main--section {
         width: 100%;
     }
@@ -617,25 +617,38 @@ header {
     /* footer */
     .footer--container {
         width: 100%;
-        height: 40em;
     }
 
     .grid--footer--container {
-        display: grid;
-        grid-template-columns: 1fr;
-        height: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
         width: 100%;
-        margin: 0;
+        gap: 0;
+        margin: 0 auto;
         padding: 0;
     }
 
     .grid__column {
-        margin: 0;
-        height: 2em;
+        height:100%;
     }
 
-    .grid__column-title {
+    .grid__column-title,.grid__column-item {
         text-align: center;
+        line-height: 1.5rem;
+    }
+
+    .column--social {
+        margin-bottom: 1em ;
+    }
+
+    .column--social ul {
+        justify-content: space-between;
+    }
+
+    .bottom--fotter {
+        padding-bottom: 2em;
     }
 
 }

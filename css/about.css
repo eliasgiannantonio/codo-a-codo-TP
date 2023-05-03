@@ -26,51 +26,106 @@ a {
     grid-template-columns: 2fr 2fr;
     width: 100%;
     max-width: 1800px;
-    margin: 0 auto; 
+    margin: 0 auto;   
 }
 
-.nosotros--text, i {
-    font-size: 1.5rem;
+.nosotros--text {
+    font-size: 1.1rem;
     font-weight: 300;
     letter-spacing: 0.1em;
     line-height: 1.8rem;
-    text-align: justify;
+    text-align: justify ;
     margin: auto 0;
-    padding: 0 2em 0 2em;
-
+    padding: 1.5em 4em 1.5em 4em;
 }
 
-
-.tienda--img {
+.about--img {
     width: 100%;
+    height: 100%;
     max-width: 1800px;
     object-fit: cover;
 }
 
+.tienda--title {
+    text-align: center;
+    margin: 2em 0 2em;
+    font-size: 2em;
+    font-weight: 400;
+}
+
 .tienda--container {
     display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-auto-flow: dense;
     width: 100%;
+    max-width: 1800px;
+    margin: 0 auto 6em;
+    height: 100%;
+}
+
+.tienda--info {
+    grid-column: 1 ;
+    letter-spacing: 0.1em;
+    line-height: 1.8rem;
+    text-align: justify ;
+    margin: auto 0;
+    padding: 1.5em 4em 1.5em 4em;
+}
+
+.tienda-name--title {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1em;  
+}
+
+.info--item {
+    font-size: 1.1rem;
+}
+
+.tienda--img {
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+}
+
+.tienda--info--reverse {
+    grid-column: 2;
+}
+
+.tienda--img--reverse {
+    grid-column: 1;
+}
+
+.map--iframe {
+    display: block;
+    border: 0;
+    width: 100%;
+    height: 25rem;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 
 
-
 @media only screen and (max-width: 780px) {
-    .nosotros--container {
+    .nosotros--container,.tienda--container {
         display: flex;
         flex-direction: column-reverse;
         width: 100%;
         margin: 0 auto;
     }
 
-    .nosotros--text, i {
+    .nosotros--text {
         margin: auto 0;
         padding: 2em 1em 3em 1em;
     }
 
+    .tienda--info {
+        padding: 1.5em 1.2em 6em;
+    }
 
-
-    .tienda--container {
-
+    .info--item {
+        font-size: 0.9rem;
     }
 }
