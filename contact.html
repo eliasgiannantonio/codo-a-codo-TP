@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <title>runthecode | Tienda</title>
+    <link rel="shortcut icon" href="img/ico_sneaker_2.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="header--container">
+            <div class="logo--container">
+                <a href="">
+                    <img class="logo__img" src="img/logo.svg" alt="Sneakers Logo">
+                </a>
+            </div>
+
+            <div class="nav--container">
+                <nav class="nav">
+                    <button id="cerrar_menu"><img src="./img/hamburguesa_close.svg" alt=""></button>
+                    <ul class="nav__list">
+                        <li class="btn nav__btn"><a class="btn__link" href="./index.html">HOME</a></li>
+                        <li class="btn nav__btn"><a class="btn__link" href="./shop.html">SHOP</a> </li>
+                        <li class="btn nav__btn"><a class="btn__link" href="./about.html">TIENDAS</a></li>
+                        <li class="btn nav__btn"><a class="btn__link" href="">CONTACTO</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="shop--container">
+                <a href="" class="shop__item"><img class="img__login" src="img/ico_user.png" alt="login"></a>
+                <a href="" class="shop__item">|</a>
+                <a href="" class="shop__item"><img class="img__cart" src="img/ico_shopping_cart.png" alt="cart"></a>
+                <button id="abrir_menu"><img src="./img/hamburguesa_open.svg" alt=""></button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="form_wrap">
+            <span class="title">Dejanos tu mensaje</span>
+            <form class="form">
+                <div class="group">
+                    <input placeholder="" type="text" required="">
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="group">
+                    <input placeholder="" type="email" id="email" name="email" required="">
+                    <label for="email">Correo electrónico</label>
+                </div>
+                <div class="group">
+                    <textarea placeholder="" id="comment" name="comment" rows="5" required=""></textarea>
+                    <label for="comment">Comentario</label>
+                </div>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </div>
+        <div class="imagen_form">
+            <img src="./img/[Downloader.la]-644eed8b258d2.jpg" alt="">
+        </div>
+    </main>
+    <footer>
+        <div class="footer--container">
+            <div class="grid--footer--container">
+                <div class="grid__column">
+                    <h4 class="grid__column-title">ASISTENCIA</h3>
+                        <ul>
+                            <li class="grid__column-item"><a href="#">Ayuda y Servicio al Cliente</a></li>
+                            <li class="grid__column-item"><a href="#">Seguimiento de Pedidos</a></li>
+                            <li class="grid__column-item"><a href="#">Cambios y Devoluciones</a></li>
+                            <li class="grid__column-item"><a href="#">Contacto</a></li>
+                        </ul>
+                </div>
+                <div class="grid__column">
+                    <h4 class="grid__column-title">POLITICAS</h3>
+                        <ul>
+                            <li class="grid__column-item"><a href="#">Condiciones Generales</a></li>
+                            <li class="grid__column-item"><a href="#">Politica de Privacidad</a></li>
+                            <li class="grid__column-item"><a href="#">Politica de Cookies</a></li>
+                            <li class="grid__column-item"><a href="#">Terminos de Uso</a></li>
+                        </ul>
+                </div>
+                <div class="grid__column grid__column--split">
+                    <div class="column--social">
+                        <h4 class="grid__column-title">SEGUINOS</h3>
+                            <ul>
+                                <li class="grid__column-item"><a href="#"><img class="social--img"
+                                            src="img/ico_instagram_white.svg" alt="Instagram"></a></li>
+                                <li class="grid__column-item"><a href="#"><img class="social--img"
+                                            src="img/ico_facebook_white.svg" alt="Facebook"></a></li>
+                                <li class="grid__column-item"><a href="#"><img class="social--img"
+                                            src="img/ico_youtube_white.svg" alt="Youtube"></a></li>
+                                <li class="grid__column-item"><a href="#"><img class="social--img"
+                                            src="img/ico_whatsapp_white.svg" alt="Whatsapp"></a></li>
+                            </ul>
+                    </div>
+                    <div class="column--payment">
+                        <h4 class="grid__column-title">MEDIOS DE PAGO</h3>
+                            <ul>
+                                <li class="grid__column-item"><img src="img/ico_visa.webp" alt="visa"
+                                        class="img card--img"></li>
+                                <li class="grid__column-item"><img src="img/ico_mastercard.webp" alt="mastercard"
+                                        class="img card--img"></li>
+                                <li class="grid__column-item"><img src="img/ico_paypal.webp" alt="paypal"
+                                        class="img card--img"></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom--fotter">
+                <h4>© SNEAKER STORE, SL - Todos los derechos reservados</h4>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
