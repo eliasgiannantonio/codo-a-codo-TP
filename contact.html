@@ -48,16 +48,16 @@
             <span class="title">Dejanos tu mensaje</span>
             <form class="form">
                 <div class="group">
-                    <input placeholder="" type="text" required="">
-                    <label for="name">Nombre</label>
+                    <input placeholder="" type="text" id="name" required="" class="input_form">
+                    <label class="label" for="name">Nombre</label>
                 </div>
                 <div class="group">
-                    <input placeholder="" type="email" id="email" name="email" required="">
-                    <label for="email">Correo electrónico</label>
+                    <input placeholder="" type="email" id="email" name="email" required="" class="input_form">
+                    <label class="label" for="email">Correo electrónico</label>
                 </div>
                 <div class="group">
-                    <textarea placeholder="" id="comment" name="comment" rows="5" required=""></textarea>
-                    <label for="comment">Comentario</label>
+                    <textarea placeholder="" id="comment" name="comment" rows="5" required="" id="textarea_form"></textarea>
+                    <label class="label" for="comment">Comentario</label>
                 </div>
                 <button type="submit">Enviar mensaje</button>
             </form>
@@ -120,6 +120,7 @@
         </div>
     </footer>
     <script src="./js/script.js"></script>
+    <script src="./js/contact_form.js"></script>
+    
 </body>
-
 </html>
