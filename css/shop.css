@@ -14,6 +14,13 @@ body {
     overflow-x: hidden;
 }
 
+/* ====== julian = comento main para reorganizar mejor los elementos =======
+/* main {                     
+    display: flex;
+    gap: 2rem;
+} */
+
+
 .searchbar_wrapper {
     width: 100vw;
     height: 200px;
@@ -39,7 +46,7 @@ body {
 .fondo img {
     position: absolute;
     top: -290px;
-    filter: brightness(30%) blur(8px);
+    filter: brightness(30%) blur(5px);   /*== julian: original blur(8px) */
 }
 
 .searchbar {
@@ -102,13 +109,9 @@ main .botones_filtro{
     display: none;
 }
 
-main {
-    display: flex;
-    gap: 2rem;
-}
-
-.grid_wrapper_products {
-    width: 100%;
+.filtro-cards--container {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
 }
 
 .filtro_wrapper {
@@ -117,6 +120,7 @@ main {
     flex-direction: column;
     gap: 10px;
     padding: 3rem;
+    margin-top: 1em; /* === julian: agregado temporalmente solo para nivelar con grid_wrapper_products */
 }
 
 .filtro_wrapper ul li {
@@ -133,20 +137,23 @@ main {
     font-size: 1.2rem;
     font-family: 'Prompt', sans-serif;
 }
-
+/* =====julian: comentado, no cumple ninguna funcion */
+/* .grid_wrapper_products{
+    width:100%;
+} */
 .product_container {
+    /* border: 1px solid red; */
     display: grid;
-    /* grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px; */
-    grid-auto-rows: 21rem;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-    gap: 10px;
+    /* grid-auto-rows: 21rem; */   /*== julian: no cumple ninguna funcion===*/
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1.5em;
+    padding: 1em 2em;
+    margin-bottom: 2em;
 }
 
 .product_container .card_product {
     border: 0.6px solid rgba(170, 170, 170, 0.256);
-    border-radius: 40px;
+    border-radius: 3px;        /* cambie border radius: original 40px */
 }
 
 .card_product {
@@ -160,7 +167,8 @@ main {
 
 
 .card_product img {
-    scale: 0.8;
+    scale: 0.9;
+    width: 100%;
 }
 
 .card_product .modelo {
@@ -171,15 +179,15 @@ main {
 .card_product .precio {
     color: #cc0000;
     font-weight: 550;
-    padding-bottom: 15px;
+    margin-bottom: 1em; /*===julian: se cambio padding x margin y 15px x 1em ===*/
 }
-
-@media (min-width: 300px) and (max-width:690px) {
+/* =======julian: comentado el mediaquery, innecesario */
+/* @media (min-width: 300px) and (max-width:690px) {
     .product_container {
         grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
     }
 
-}
+} */
 
 
 @media (min-width: 665px) and (max-width:700px) {
@@ -205,14 +213,24 @@ main {
         gap: 0.4rem;
         scale: 0.9;
     }
-
-    main{
-        flex-direction: column;
-    }
+    /*======julian: comentado main , no cumple ninguna funcion ====*/
+    /* main{
+        flex-direction: column;   
+    } */
     
-    main section:first-child{
+    .filtro-cards--container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .filtro_wrapper--container{
         display: none;
     }
+
+    /* ===== julian: selector comentado, no cumple ninguna funcion */
+    /* .grid_wrapper_products {
+        width: 100%;
+    } */
 
     .botones_filtro{
         display: block;

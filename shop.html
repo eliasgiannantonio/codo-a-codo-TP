@@ -5,32 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>runthecode | Tienda</title>
+    <link rel="shortcut icon" href="img/ico_sneaker_2.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/shop.css">
-
 </head>
-
 <body>
     <header>
         <div class="header--container">
             <div class="logo--container">
-                <a href="">
+                <a href="./index.html">
                     <img class="logo__img" src="img/logo.svg" alt="Sneakers Logo">
                 </a>
             </div>
-
             <div class="nav--container">
                 <nav class="nav">
                     <button id="cerrar_menu"><img src="./img/hamburguesa_close.svg" alt=""></button>
                     <ul class="nav__list">
                         <li class="btn nav__btn"><a class="btn__link" href="./index.html">HOME</a></li>
                         <li class="btn nav__btn"><a class="btn__link" href="./shop.html">SHOP</a> </li>
-                        <li class="btn nav__btn"><a class="btn__link" href="">TIENDAS</a></li>
-                        <li class="btn nav__btn"><a class="btn__link" href="">CONTACT</a></li>
+                        <li class="btn nav__btn"><a class="btn__link" href="./about.html">TIENDAS</a></li>
+                        <li class="btn nav__btn"><a class="btn__link" href="./contact.html">CONTACTO</a></li>
                     </ul>
                 </nav>
             </div>
@@ -42,95 +40,104 @@
             </div>
         </div>
     </header>
-    <section class="searchbar_wrapper">
-        <div class="fondo">
-            <img src="./img/pexels-mstudio-1240892.jpg" alt="">
-        </div>
-        <div class="searchbar">
-            <input type="text" placeholder="Buscá tu modelo">
-            <img src="" alt="">
-        </div>
-        <div class="searchbar__filtros">
-            <ul>
-                <li>Todos</li>
-                <li>Masculino</li>
-                <li>Femenino</li>
-                <li>De vestir</li>
-                <li>Deportivas</li>
-            </ul>
-        </div>
-    </section>
     <main>
-        <section>
-            <div class="filtro_wrapper">
-                <h4>Categoría</h4>
+        <!--========= meto section de searchbar en el main ================-->
+        <section class="searchbar_wrapper">
+            <div class="fondo">
+                <img src="/img/web_nike_sneaker_4.jpg" alt="">
+            </div>
+            <div class="searchbar">
+                <input type="text" placeholder="Buscá tu modelo">
+                <img src="" alt="">
+            </div>
+            <div class="searchbar__filtros">
                 <ul>
-                    <li>Formal</li>
-                    <li>Casual</li>
-                    <li>Sneakers</li>
+                    <li>Todos</li>
+                    <li>Masculino</li>
+                    <li>Femenino</li>
+                    <li>De vestir</li>
                     <li>Deportivas</li>
-                </ul>
-                <h4>Marca</h4>
-                <ul>
-                    <li>Adidas</li>
-                    <li>Converse</li>
-                    <li>Nike</li>
-                    <li>New Balance</li>
-                </ul>
-                <h4>Talle</h4>
-                <ul>
-                    <li>4</li>
-                    <li>4.5</li>
-                    <li>5.5</li>
-                    <li>6</li>
                 </ul>
             </div>
         </section>
+        <!-- ===== julian: creo que quedaria mejor usar div para estos botones y no una section completa ===== -->
         <section class="botones_filtro">
             <button>Filtros</button>
             <button>Ordenar</button>
         </section>
-        <section class="grid_wrapper_products">
-            <div class="product_container">
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
+        <section class="filtro-cards--container">
+            <div class="filtro_wrapper--container">
+                <div class="filtro_wrapper">
+                    <div class="lista_filtro"></div>
+                    <h4>Categoría</h4>
+                    <ul>
+                        <li>Formal</li>
+                        <li>Casual</li>
+                        <li>Sneakers</li>
+                        <li>Deportivas</li>
+                    </ul>
+                    <div class="lista_filtro">
+                        <h4>Marca</h4>
+                        <ul>
+                            <li>Adidas</li>
+                            <li>Converse</li>
+                            <li>Nike</li>
+                            <li>New Balance</li>
+                        </ul>
+                    </div>
+                    <div class="lista_filtro">
+                        <h4>Talle</h4>
+                        <ul>
+                            <li>4</li>
+                            <li>4.5</li>
+                            <li>5.5</li>
+                            <li>6</li>
+                        </ul>
+                  </div>
                 </div>
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
-                </div>
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
-                </div>
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
-                </div>
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
-                </div>
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
-                </div>
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
-                </div>
-                <div class="card_product">
-                    <img src="./img/ejemplo_nike_air.webp" alt="">
-                    <p class="modelo">Nike Air Pro Max</p>
-                    <p class="precio">$18.000</p>
+            </div>
+            <div class="grid_wrapper_products">
+                <div class="product_container">
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
+                    <div class="card_product">
+                        <img src="./img/ejemplo_nike_air.webp" alt="">
+                        <p class="modelo">Nike Air Pro Max</p>
+                        <p class="precio">$18.000</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -160,18 +167,18 @@
                     <div class="column--social">
                         <h4 class="grid__column-title">SEGUINOS</h3>
                         <ul>
-                            <li class="grid__column-item"><a href="#"><img src="img/ico_instagram_white.svg" alt="Instagram"></a></li>
-                            <li class="grid__column-item"><a href="#"><img src="img/ico_facebook_white.svg" alt="Facebook"></a></li>
-                            <li class="grid__column-item"><a href="#"><img src="img/ico_youtube_white.svg" alt="Youtube"></a></li>
-                            <li class="grid__column-item"><a href="#"><img src="img/ico_whatsapp_white.svg" alt="Whatsapp"></a></li>
+                            <li class="grid__column-item"><a href="#"><img class="social--img" src="img/ico_instagram_white.svg" alt="Instagram"></a></li>
+                            <li class="grid__column-item"><a href="#"><img class="social--img" src="img/ico_facebook_white.svg" alt="Facebook"></a></li>
+                            <li class="grid__column-item"><a href="#"><img class="social--img" src="img/ico_youtube_white.svg" alt="Youtube"></a></li>
+                            <li class="grid__column-item"><a href="#"><img class="social--img" src="img/ico_whatsapp_white.svg" alt="Whatsapp"></a></li>
                         </ul>
                     </div> 
                     <div class="column--payment">
                         <h4 class="grid__column-title">MEDIOS DE PAGO</h3>
                         <ul>
-                            <li class="grid__column-item">Visa</li>
-                            <li class="grid__column-item">Master</li>
-                            <li class="grid__column-item">Cabal</li>
+                            <li class="grid__column-item"><img src="img/ico_visa.webp" alt="visa" class="img card--img"></li>
+                            <li class="grid__column-item"><img src="img/ico_mastercard.webp" alt="mastercard" class="img card--img"></li>
+                            <li class="grid__column-item"><img src="img/ico_paypal.webp" alt="paypal" class="img card--img"></li>
                         </ul>
                     </div>
                 </div>

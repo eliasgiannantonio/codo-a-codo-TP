@@ -21,13 +21,6 @@
     font-size: 16px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-}
-
-img {
-    max-width: 100%;
-}
-
-li  {
     list-style: none;
 }
 
@@ -38,17 +31,21 @@ a {
 /* HEADER Y NAVBAR */
 header {
     position: sticky;
+    background-color: var(--main-background-color);
     top: 0;
     z-index: 100;
 }
 
 .header--container  {
-    width: 100vw;
+    width: 100%;
+    max-width: 1800px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
     background-color: var(--main-background-color);
+    margin: 0 auto;
     height: 10vh;
+    padding: 0 3%;
 }
 
 .logo__img {
@@ -80,7 +77,6 @@ header {
 #cerrar_menu {
     filter: invert(100%);
 }
-
 
 .nav__list {
     display: flex;
@@ -121,6 +117,7 @@ header {
 
 .shop--container {
     display: flex;
+    width: 10em;
     justify-content: right;
     align-items: center;
     object-fit: cover;
@@ -146,6 +143,8 @@ header {
 .text--wrapper {
     color: var(--alt-font-color);
     display: flex;
+    max-width: 1800px;
+    margin: 0 auto;
     justify-content: flex-start;
     background-color: #EA5455;
     padding: 0.4em 0; 
@@ -172,8 +171,11 @@ header {
 }
 
 .main--section--container {
+    
     display: grid;
     width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
     height: 35em;
     grid-template-areas: 'carousel top'
                         'carousel bottom';
@@ -185,7 +187,7 @@ header {
 .carousel--main--section {
     grid-area: carousel;
     position: relative;
-    width: 100%;
+    width: 100%; 
     height: 100%;
 }
 
@@ -204,9 +206,16 @@ header {
     left: 0;
 }
 
+.carousel__slide {
+    height: 100%;
+    width: 100%;
+}
+
+
 .carousel__img {
     display: block; 
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -300,9 +309,10 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
     flex-wrap: wrap;
-    padding: 0 1em;
-    margin-bottom: 5em;
     justify-items:center;
+    padding: 0 1em;
+    max-width: 1800px;
+    margin: 0 auto  5em auto;
 }
 
 .brand--box {
@@ -325,6 +335,8 @@ header {
     position: relative;
     height: 15em;
     width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 .subscribe--form {
@@ -394,15 +406,19 @@ header {
 .footer--container {
     background-color: #000000;
     color: var(--alt-font-color);
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 .grid--footer--container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 0 10em;
-    height: 30vh;
-    width: 100%;
-    gap: 1em;
+    padding: 0 3em;
+    margin: 0 auto;
+    height: 12rem;
+    width: 90%;
+    gap: 3em;
 }
 
 .grid__column {
@@ -411,10 +427,12 @@ header {
 
 .grid__column-title {
     margin-bottom: 0.5em;
+    font-size: 0.9em;
 }
 
 .grid__column-item a {
     color: var(--alt-font-color);
+    font-size: 0.8em;
 }
 
 .grid__column--split {
@@ -428,10 +446,9 @@ header {
     display: flex;
     padding: 0.3em 0;
     gap: 0.8em;
-
 }
 
-.column--social img {
+.card--img,.social--img {
     height: 1.7em;
 }
 
@@ -515,6 +532,7 @@ header {
     .nav__list{
         flex-direction: column;
         align-items: end;
+        gap: 1.4rem;
     }
 
     .nav__btn{
@@ -524,7 +542,7 @@ header {
 
     .btn__link{
         color: #ffffff;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     
 
@@ -556,7 +574,6 @@ header {
         width: 100%;
         object-fit: cover;    
     }
-
 
     .top--main--section, .bottom--main--section {
         width: 100%;
@@ -601,25 +618,38 @@ header {
     /* footer */
     .footer--container {
         width: 100%;
-        height: 40em;
     }
 
     .grid--footer--container {
-        display: grid;
-        grid-template-columns: 1fr;
-        height: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
         width: 100%;
-        margin: 0;
+        gap: 0;
+        margin: 0 auto;
         padding: 0;
     }
 
     .grid__column {
-        margin: 0;
-        height: 2em;
+        height:100%;
     }
 
-    .grid__column-title {
+    .grid__column-title,.grid__column-item {
         text-align: center;
+        line-height: 1.5rem;
+    }
+
+    .column--social {
+        margin-bottom: 1em ;
+    }
+
+    .column--social ul {
+        justify-content: space-between;
+    }
+
+    .bottom--fotter {
+        padding-bottom: 2em;
     }
 
 }
