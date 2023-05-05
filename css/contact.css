@@ -57,12 +57,12 @@ main {
 
 .group:nth-child(1) {
     border-radius: 5px;
-    border: 1px solid rgb(0 0 0 / 20%);
+    border: 0.1px solid rgba(124, 124, 124, 0.253);
 }
 
 .group:nth-child(2) {
     border-radius: 5px;
-    border: 1px solid rgb(0 0 0 / 20%);
+    border: 0.1px solid rgba(124, 124, 124, 0.253);
 }
 
 
