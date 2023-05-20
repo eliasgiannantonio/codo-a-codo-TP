@@ -46,17 +46,18 @@
     <main>
         <div class="form_wrap">
             <span class="title">Dejanos tu mensaje</span>
-            <form class="form">
+            <form class="form" id="myForm" action="" name="formulario" method="get" onsubmit="return validarFormulario(event)">
                 <div class="group">
-                    <input placeholder="" type="text" id="name" required="" class="input_form">
+                    <input placeholder="" type="text" id="name" name="nombre" class="input_form">
                     <label class="label" for="name">Nombre</label>
                 </div>
                 <div class="group">
-                    <input placeholder="" type="email" id="email" name="email" required="" class="input_form">
+                    <input placeholder="" type="email" id="email" name="email" class="input_form">
                     <label class="label" for="email">Correo electrónico</label>
+                    <span id="emailError" class="error"></span>
                 </div>
                 <div class="group">
-                    <textarea placeholder="" id="comment" name="comment" rows="5" required="" id="textarea_form"></textarea>
+                    <textarea placeholder="" id="comment" name="comment" rows="5" id="textarea_form"></textarea>
                     <label class="label" for="comment">Comentario</label>
                 </div>
                 <button type="submit">Enviar mensaje</button>
@@ -65,7 +66,7 @@
         <div class="imagen_form">
             <img src="./img/[Downloader.la]-644eed8b258d2.jpg" alt="">
         </div>
-    </main>
+    </main>    
     <footer>
         <div class="footer--container">
             <div class="grid--footer--container">
