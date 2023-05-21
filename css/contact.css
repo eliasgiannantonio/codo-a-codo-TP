@@ -1,28 +1,32 @@
-main {
+.contact--section {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-}
-
-
-.imagen_form img {
-    width: 100%;
+    max-width: 1920px;
     height: auto;
-    filter: grayscale(20%) brightness(55%) contrast(110%) invert(9%);
-    -webkit-filter: grayscale(20%) brightness(55%) contrast(110%) invert(9%);
-    -moz-filter: grayscale(20%) brightness(55%) contrast(110%) invert(9%);
+    margin: 0 auto;
 }
 
 .imagen_form {
     position: absolute;
-    z-index: -5;
     width: 100%;
+    height: 100%;
+    z-index: -5;
 }
 
+.imagen_form img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 60%;
+    filter: grayscale(20%) brightness(55%) contrast(110%) invert(9%);
+    -webkit-filter: grayscale(20%) brightness(55%) contrast(110%) invert(9%);
+    -moz-filter: grayscale(20%) brightness(55%) contrast(110%) invert(9%);
+}
 
 .form_wrap {
     position: relative;
