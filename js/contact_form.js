@@ -25,4 +25,31 @@ textarea.forEach((textarea, index) => {
 });
 
 
+function validarFormulario(event) {
+    event.preventDefault();
+
+    var nameInput = document.getElementById('name');
+    var emailInput = document.getElementById('email');
+    var emailError = document.getElementById('emailError');
+    var commentInput = document.getElementById('comment');
+
+    if (nameInput.value === '' || emailInput.value === '' || commentInput.value === '') {
+        alert('Por favor, completa todos los campos.');
+        return false;
+    }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput.value)) {
+        emailError.textContent = 'Correo electrónico inválido, asegúrate de escribir uno válido.';
+        return false;
+    } else {
+        emailError.textContent = '';
+    }
+
+    alert('Mensaje enviado con éxito');
+    return true;
+}
+
+
+
 
