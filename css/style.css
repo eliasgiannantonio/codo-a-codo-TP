@@ -295,13 +295,18 @@ header {
 
 .shop__btn {
     display: inline-block;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     color: var(--alt-font-color);
     background-color: var(--primary--button);
     font-size: 1.3em;
     font-weight: 700;
     margin-left: 12%;
     padding: 0.7em 1.5em;
+    transition: all 150ms ease-in-out;
+}
+
+.shop__btn:hover {
+    background-color: var(--primary--button--hover);
 }
 
 /* BRAND SECTION */
