@@ -3,8 +3,11 @@
     --main-font-link:  #000000;
     --alt-font-color: #FFFBF5;
     --main-background-color: #ffffff;
+    --alt-navbar-color: #efefef;
     --primary-color: #EA5455;
     --secondary-color: #002B5B;
+    --primary--button: #9d2e2e;
+    --primary--button--hover: #631b1b; 
 }
 
 * {
@@ -25,7 +28,7 @@ a {
     display: grid;
     grid-template-columns: 2fr 2fr;
     width: 100%;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto;   
 }
 
@@ -42,7 +45,7 @@ a {
 .about--img {
     width: 100%;
     height: 100%;
-    max-width: 1800px;
+    max-width: 1920px;
     object-fit: cover;
 }
 
@@ -58,7 +61,7 @@ a {
     grid-template-columns: repeat(2, 2fr);
     grid-auto-flow: dense;
     width: 100%;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto 6em;
     height: 100%;
 }
@@ -76,6 +79,11 @@ a {
     color: var(--secondary-color);
     font-size: 1.3rem;
     margin-bottom: 1em;  
+}
+
+.icon {
+    margin-right: 0.5em;
+    color: var(--primary--button);
 }
 
 .info--item {
@@ -102,13 +110,21 @@ a {
     border: 0;
     width: 100%;
     height: 25rem;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto;
 }
 
 
+@media (min-width: 781px) and (max-width: 1024px)  {
+    .tienda-name--title {
+        font-size: 1.1rem;
+    }
+    .info--item {
+        font-size: 0.9rem;
+    }
+}
 
-@media only screen and (max-width: 780px) {
+@media (max-width: 780px) {
     .nosotros--container,.tienda--container {
         display: flex;
         flex-direction: column-reverse;

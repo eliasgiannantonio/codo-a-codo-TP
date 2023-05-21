@@ -11,8 +11,11 @@
     --main-font-link:  #000000;
     --alt-font-color: #FFFBF5;
     --main-background-color: #ffffff;
+    --alt-navbar-color: #efefef;
     --primary-color: #EA5455;
     --secondary-color: #002B5B;
+    --primary--button: #9d2e2e;
+    --primary--button--hover: #631b1b; 
 }
 
 * {
@@ -38,7 +41,7 @@ header {
 
 .header--container  {
     width: 100%;
-    max-width: 1800px;
+    max-width: 1920px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,6 +49,10 @@ header {
     margin: 0 auto;
     height: 10vh;
     padding: 0 3%;
+}
+
+.header--container.scroll {
+    background-color: var(--alt-navbar-color);
 }
 
 .logo__img {
@@ -143,7 +150,7 @@ header {
 .text--wrapper {
     color: var(--alt-font-color);
     display: flex;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto;
     justify-content: flex-start;
     background-color: #EA5455;
@@ -170,11 +177,15 @@ header {
     }  
 }
 
+.main--section {
+    margin-bottom: 5em;
+}
+
 .main--section--container {
     
     display: grid;
     width: 100%;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto;
     height: 35em;
     grid-template-areas: 'carousel top'
@@ -258,7 +269,7 @@ header {
 
 .top--main--section h2 {
     font-size: 4em;
-    margin: 0 12% 1em;
+    margin: 8% 12% 1em;
     position: relative;
 }
 
@@ -284,19 +295,24 @@ header {
 
 .shop__btn {
     display: inline-block;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     color: var(--alt-font-color);
-    background-color: brown;
+    background-color: var(--primary--button);
     font-size: 1.3em;
     font-weight: 700;
     margin-left: 12%;
     padding: 0.7em 1.5em;
+    transition: all 150ms ease-in-out;
+}
+
+.shop__btn:hover {
+    background-color: var(--primary--button--hover);
 }
 
 /* BRAND SECTION */
 .brand--title {
     text-align: center;
-    margin: 6em 0 3em;
+    margin: 0 0 4em;
 }
 
 .brand__text {
@@ -311,7 +327,7 @@ header {
     flex-wrap: wrap;
     justify-items:center;
     padding: 0 1em;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto  5em auto;
 }
 
@@ -335,7 +351,7 @@ header {
     position: relative;
     height: 15em;
     width: 100%;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto;
 }
 
@@ -407,7 +423,7 @@ header {
     background-color: #000000;
     color: var(--alt-font-color);
     width: 100%;
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto;
 }
 
@@ -549,13 +565,12 @@ header {
 
     /* Main section */
     .main--section--container {
-        /* border: 1px solid red; */
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         text-align: center;
-        height: 120vh;
+        height: 100%;
     }
 
     .carousel--main--section {
@@ -579,7 +594,6 @@ header {
         width: 100%;
     }
     .top--main--section h2 {
-        /* border: 1px solid forestgreen; */
         font-size: 2.9em;
         letter-spacing: 0em;
         text-align: center;
@@ -593,6 +607,7 @@ header {
 
     .top--main--section p {
         margin: 0;
+        padding: 0 0.4em;
         margin-bottom: 2em;
     }
 
