@@ -1,17 +1,17 @@
 import sqlite3
 from flask import Flask, jsonify, request
+from flask_cors import CORS                 # flask_CORS fue instalado directamente en pythonanywhere
+
 
 DATABASE = "inventario.db"
 # Configurar la conexión a la base de datos SQLite
 def get_db_connection():
-    print("Obteniendo conexión...") # Para probar que se ejecuta la función
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
 #CREAR la tabla 'productos' si no existe
 def create_table():
-    print("Creando tabla de productos...")
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('''
@@ -27,14 +27,14 @@ def create_table():
 
 # verificar si la base de datos existe, si no, crearla y crear la tabla
 def create_database():
-    print("Creando la BD...")
     conn = sqlite3.connect(DATABASE)
     create_table()
     conn.close()
 
-
+#CREAMOS BASE DE DATOS Y LA TABLA SI NO EXISTEN
+create_database()
 ######################## Creacion de clases Producto, Inventario y Carrito
-
+"""
 #---------------------------------------------------------------------
 #------              Productos
 #--------------------------------------------------------
@@ -50,7 +50,7 @@ class Producto:
     def modificar(self, nueva_descripcion, nueva_cantidad, nuevo_precio):
         self.description = nueva_descripcion    #modif descripcion
         self.cantidad = nueva_cantidad          #modif cantidad
-        self.descripcion = nueva_descripcion    #modif precio
+        self.precio = nuevo_precio    #modif precio
 
 ## Inventario // Clase
 class Inventario:
@@ -69,7 +69,7 @@ class Inventario:
             producto_existente = self.consultar_producto(codigo)
             if producto_existente:
                 return jsonify({'message': 'Ya existe un producto con ese codigo.'}), 400
-            nuevo_producto = Producto(self, descripcion, cantidad, precio)
+            nuevo_producto = Producto(codigo, descripcion, cantidad, precio)
             sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio});'
             self.cursor.execute(sql)
             self.conexion.commit()
@@ -147,7 +147,7 @@ class Carrito:
         return jsonify({'message': 'Producto agregado al carrito correctamente.'}), 200
     
     #ORIGINALMENTE ESTABA el parametro 'inventario' que luego fue eliminado
-    def quitar(self, codigo, cantidad):
+    def quitar(self, codigo, cantidad, inventario):
         for item in self.items:
             if item.codigo == codigo:
                 if cantidad > item.cantidad:
@@ -173,10 +173,8 @@ class Carrito:
 #----------------------------------------------------------------
 
 app = Flask(__name__)
+CORS(app)
 
-# Programa principal
-# Crear la base de datos y la tabla si no existen
-create_database()
 
 carrito = Carrito() # Instanciamos un carrito
 inventario = Inventario() # Instanciamos un inventario
