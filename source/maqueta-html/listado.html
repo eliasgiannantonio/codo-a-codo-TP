@@ -49,7 +49,7 @@
                 data.forEach(function (producto) {
                     var fila = document.createElement('tr')
                     fila.innerHTML = '<td>' + producto.id + '</td>' +     //IMPORTANTE!! QUITAR EL STYLE DE IMG
-                        `<img src="${producto.img}" alt="Imagen del producto ${producto.name}" style="width: 5em;">` + 
+                        `<td><img src="${producto.img}" alt="Imagen del producto ${producto.name}" style="width: 5em;"></td>` + 
                         '<td>' + producto.name + '</td>' +
                         '<td align="right">' + producto.brand + '</td>' +
                         '<td align="right">' + producto.style + '</td>' +
