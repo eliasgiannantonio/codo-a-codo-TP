@@ -6,6 +6,8 @@
     --alt-navbar-color: #efefef;
     --primary-color: #EA5455;
     --secondary-color: #002B5B;
+    --inventary-color: #dcb9b2;
+    --inventary-alt: #9f8d99;
     --primary--button: #9d2e2e;
     --primary--button--hover: #631b1b; 
 }
@@ -29,10 +31,23 @@ body {
     margin: 0 auto;
 }
 
+main {
+    flex: 1 ;
+}
+/* Propiedades generales de los botones */
+button {
+    -webkit-appearance: none;
+    border-radius: 0;
+    display:  inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+}
+
 /* =====      HEADER SECTION                */
 
 .header--container {
-    background-color: var(--primary-color);
+    background-color: var(--alt-navbar-color);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -58,18 +73,62 @@ body {
 .nav--inventario {
     flex-basis: auto;
     display: grid;
-    background-color: #002B5B;
+    background-color: var(--inventary-color);
     width: 17%;
     height: calc(100% - 5em);
 }
 
-main {
-    flex: 1 ;
+.nav_button--inventario {
+    background-color: var(--inventary-color);
+    color: var(--alt-font-color);
+    width: 100%;
+    padding: 0.9em 0;
+    border: none;
+    border-bottom: 1px solid var(--alt-navbar-color);
+
 }
+
+.nav_button--inventario:hover {
+    background-color: var(--inventary-alt);
+}
+
+/*  ==========      SECTION  ==========*/
 
 .hidden {
     display: none;
 }
+
+section {
+    padding: 2em 3em;
+}
+
+.section__title {
+    font-size: 1.8em;
+    margin-bottom: 1.5em;
+}
+
+.section__description {
+    margin-bottom: 1em;
+}
+
+input {
+    -webkit-appearance: none;
+    /* background-color: #002B5B; */
+}
+
+th {
+    color: var(--alt-font-color);
+    font-weight: 300;
+    font-size: 0.9em;
+    padding: 0.3em 0.5em;
+    background-color: #002B5B;
+}
+
+td {
+    font-size: 0.8em;
+    text-align: left;
+}
+
 
 
 
