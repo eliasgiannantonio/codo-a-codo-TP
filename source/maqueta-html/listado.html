@@ -10,15 +10,19 @@
 </head>
 
 <body>
-    <h1>Listado de Productos</h1>
-    <h3>Codo a Codo 2023</h3>
+    <h1>Run the code</h1>
+    <h3>Listado de Productos</h3>
     <table>
         <thead>
             <tr>
-                <th>Código</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>
+                <th>id</th>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Marca</th>
+                <th>Categoría</th>
                 <th align="right">Precio</th>
+                <th align="right">Cantidad</th>
+                <th>Descripción</th>
             </tr>
         </thead>
         <tbody id="tablaProductos">
@@ -28,10 +32,9 @@
         <a href="index.html">Menu principal</a>
     </div>
     <script>
-        //const URL = "http://127.0.0.1:5000/"
         const URL = "https://jaguero.pythonanywhere.com/"
         // Realizamos la solicitud GET al servidor para obtener todos los productos
-        fetch(URL + 'productos')
+        fetch(URL + 'runthecode/productos')
             .then(function (response) {
                 if (response.ok) {
                     return response.json() // Parseamos la respuesta JSON
@@ -45,11 +48,14 @@
                 // Iteramos sobre los productos y agregamos filas a la tabla
                 data.forEach(function (producto) {
                     var fila = document.createElement('tr')
-                    fila.innerHTML = '<td>' + producto.codigo + '</td>' +
-                        '<td>' + producto.descripcion + '</td>' +
-                        '<td align="right">' + producto.cantidad + '</td>' +
-                        '<td align="right">&nbsp; &nbsp;&nbsp; &nbsp;' +
-                        producto.precio + '</td>'
+                    fila.innerHTML = '<td>' + producto.id + '</td>' +     //IMPORTANTE!! QUITAR EL STYLE DE IMG
+                        `<img src="${producto.img}" alt="Imagen del producto ${producto.name}" style="width: 5em;">` + 
+                        '<td>' + producto.name + '</td>' +
+                        '<td align="right">' + producto.brand + '</td>' +
+                        '<td align="right">' + producto.style + '</td>' +
+                        '<td align="right">' + producto.price + '</td>' +
+                        '<td align="right">' + producto.itemsLeft + '</td>' +
+                        '<td align="left">' + producto.description + '</td>';
                     tablaProductos.appendChild(fila)
                 })
             })

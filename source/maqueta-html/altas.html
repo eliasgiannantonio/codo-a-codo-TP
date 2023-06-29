@@ -10,17 +10,25 @@
 </head>
 
 <body>
-    <h1>Agregar Productos al Inventario</h1>
-    <h3>Codo a Codo 2023</h3>
+    <h1>Run the code</h1>
+    <h3>Alta de Productos</h3>
     <form id="formulario">
-        <label for="codigo">Código:</label>
-        <input type="text" id="codigo" name="codigo" required><br>
-        <label for="descripcion">Descripción:</label>
-        <input type="text" id="descripcion" name="descripcion" required><br>
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" required><br>
-        <label for="precio">Precio:</label>
-        <input type="number" step="0.01" id="precio" name="precio" required><br>
+        <label for="id">Id:</label>
+        <input type="text" id="id" name="id" required><br>
+        <label for="name">Producto:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="brand">Marca:</label>
+        <input type="text" id="brand" name="brand" required><br>
+        <label for="style">Categoría:</label>
+        <input type="text" id="style" name="style" required><br>
+        <label for="price">Precio:</label>
+        <input type="number" step="0.01" id="price" name="price" required><br>
+        <label for="itemsLeft">Cantidad:</label>
+        <input type="number" id="itemsLeft" name="itemsLeft" required><br>
+        <label for="img">Link de la imagen:</label>
+        <input type="text" id="img" name="img" required><br>
+        <label for="description">Descripción:</label>
+        <textarea  id="description" name="description"  rows="4" cols="50" placeholder="Inserte la descripción del producto" required></textarea><br>
         <button type="submit">Agregar Producto</button>
         <a href="index.html">Menu principal</a>
     </form>
@@ -31,20 +39,28 @@
             function (event) {
                 event.preventDefault() // Evitamos que se recargue la página
                 // Obtenemos los valores del formulario
-                var codigo = document.getElementById('codigo').value
-                var descripcion = document.getElementById('descripcion').value
-                var cantidad = document.getElementById('cantidad').value
-                var precio = document.getElementById('precio').value
+                var id = document.getElementById('id').value
+                var name = document.getElementById('name').value
+                var brand = document.getElementById('brand').value
+                var style = document.getElementById('style').value
+                var price = document.getElementById('price').value
+                var itemsLeft = document.getElementById('itemsLeft').value
+                var img = document.getElementById('img').value
+                var description = document.getElementById('description').value
                 // Creamos un objeto con los datos del producto
                 var producto = {
-                    codigo: codigo,
-                    descripcion: descripcion,
-                    cantidad: cantidad,
-                    precio: precio
+                    id: id,
+                    name: name,
+                    brand: brand,
+                    style: style,
+                    price: price,
+                    itemsLeft: itemsLeft,
+                    img: img,
+                    description: description
                 }
                 console.log(producto)
                 // Realizamos la solicitud POST al servidor
-                fetch(URL + 'productos', {
+                fetch(URL + 'runthecode/productos', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -60,10 +76,14 @@
                     })
                     .then(function (data) {
                         alert('Producto agregado correctamente.')
-                        document.getElementById('codigo').value = ""
-                        document.getElementById('descripcion').value = ""
-                        document.getElementById('cantidad').value = ""
-                        document.getElementById('precio').value = ""
+                        document.getElementById('id').value = ""
+                        document.getElementById('name').value = ""
+                        document.getElementById('brand').value = ""
+                        document.getElementById('style').value = ""
+                        document.getElementById('price').value = ""
+                        document.getElementById('itemsLeft').value = ""
+                        document.getElementById('img').value = ""
+                        document.getElementById('description').value = ""
                     })
                     .catch(function (error) {
                         console.log('Error:', error)
