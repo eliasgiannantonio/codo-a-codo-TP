@@ -12,6 +12,7 @@
 <body>
     <h1>Run the code</h1>
     <h3>Eliminar Productos del Inventario</h3>
+    <button @click="obtenerProductos">Cargar listado</button>
     <table>
         <thead>
             <tr>
@@ -91,9 +92,9 @@
                     }
                 }
             },
-            mounted() {
-                this.obtenerProductos()
-            }
+            // mounted() {
+            //     this.obtenerProductos()
+            // }
         })
         app.mount('body')
     </script>
