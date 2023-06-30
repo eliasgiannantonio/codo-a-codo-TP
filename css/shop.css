@@ -193,6 +193,36 @@ main .botones_filtro{
     font-weight: 550;
     margin-bottom: 1em; /*===julian: se cambio padding x margin y 15px x 1em ===*/
 }
+
+.card_product .contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.card_product .contador button {
+    border: none;
+    background-color: #ccc;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.card_product .contador span {
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.card_product .btn-agregar-carrito {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
 /* =======julian: comentado el mediaquery, innecesario */
 /* @media (min-width: 300px) and (max-width:690px) {
     .product_container {
