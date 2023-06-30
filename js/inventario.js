@@ -1,6 +1,5 @@
 // ===========================================
 // ================  toggle function =========
-
 const buttonAlta = document.querySelector('#alta-productos')
 const buttonModificar = document.querySelector('#modificar-productos')
 const buttonBaja = document.querySelector('#baja-productos')
@@ -128,7 +127,7 @@ const modify = Vue.createApp({
                     if (response.ok) {
                         return response.json()
                     } else {
-                        throw new Error('Error al obtener los datos Ddel producto.')
+                        throw new Error('Error al obtener los datos del producto.')
                     }
                 })
                 .then(data => {
@@ -231,13 +230,12 @@ const app = Vue.createApp({
                         alert('Error al eliminar el producto.')
                     })
             }
-        }
+        },
     },
-    mounted() {
-        this.obtenerProductos()
-    }
 })
 app.mount('.baja__productos--container')
+
+
 
 
 // =======================================================================

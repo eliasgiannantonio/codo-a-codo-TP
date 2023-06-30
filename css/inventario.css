@@ -10,6 +10,7 @@
     --inventary-alt: #9f8d99;
     --primary--button: #9d2e2e;
     --primary--button--hover: #631b1b; 
+    --secondary--button--hover: #c04141; 
 }
 
 * {
@@ -89,7 +90,7 @@ button {
 }
 
 .nav_button--inventario:hover {
-    background-color: var(--inventary-alt);
+    background-color: var(--secondary--button--hover);
 }
 
 /*  ==========      SECTION  ==========*/
@@ -129,6 +130,42 @@ td {
     text-align: left;
 }
 
+.all-sections button{
+    -webkit-appearance: none;
+    /* display: flex; */
+    background-color: var(--primary--button);
+    margin: 0 auto;
+    color: var(--alt-font-color);
+    padding: 0.5em  0.8em;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 2em;
+    transition: all ease 150ms;
+}
 
+.all-sections button:hover {
+    transform: scale(101%);
+    background-color: var(--secondary--button--hover);
+}
+
+.sneaker__img{
+    position: relative;
+    height: 4em;
+    left: 1em;
+    bottom: -2em;
+    transition: all 250ms ease-in ;
+}
+
+.all-sections button:hover ~ .sneaker__img {
+    transform: rotateZ(45deg) ;
+	transform-origin: bottom botom;
+}
+
+.all-sections label {
+    display: inline-block;
+    width: 10em;
+    margin-bottom: 0.8em;
+}
 
 
