@@ -1,6 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+:root {
+    --main-font-color: #121212ff;
+    --main-font-link: #000000;
+    --alt-font-color: #FFFBF5;
+    --main-background-color: #ffffff;
+    --alt-navbar-color: #efefef;
+    --primary-color: #EA5455;
+    --secondary-color: #002B5B;
+    --secondary-color-hover: #0d55a7;
+    --inventary-color: #dcb9b2;
+    --inventary-alt: #9f8d99;
+    --primary--button: #9d2e2e;
+    --primary--button--hover: #631b1b;
+    --secondary--button--hover: #c04141;
+}
 
-
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    list-style: none;
+}
 
 .btn__link.white {
     color: white;
@@ -10,20 +32,18 @@ body {
     overflow-x: hidden;
 }
 
-/* ====== julian = comento main para reorganizar mejor los elementos =======
-/* main {                     
-    display: flex;
-    gap: 2rem;
-} */
-
-
+button {
+    -webkit-appearance: none;
+    cursor: pointer;
+}
 .searchbar_wrapper {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     height: 13rem;
     /* position: relative; */
-    /* display: flex;  */           /* julian - comentado - innecesario */
+    /* display: flex;  */
+    /* julian - comentado - innecesario */
     /* align-items: center;
     flex-wrap: wrap;
     justify-content: center;
@@ -31,7 +51,7 @@ body {
 
 }
 
-.fondo {   
+.fondo {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -49,7 +69,8 @@ body {
     /* height: 100%; */
     object-fit: cover;
     z-index: -1;
-    filter: brightness(40%) blur(4px);   /*== julian: original blur(8px) */
+    filter: brightness(40%) blur(4px);
+    /*== julian: original blur(8px) */
 }
 
 .searchbar {
@@ -94,7 +115,7 @@ body {
     color: white;
 }
 
-main .botones_filtro{
+main .botones_filtro {
     visibility: hidden;
     visibility: visible;
     display: flex;
@@ -103,7 +124,7 @@ main .botones_filtro{
     align-items: center;
 }
 
-.botones_filtro button{
+.botones_filtro button {
     border: 1px solid rgba(117, 12, 12, 0.674);
     border-radius: 9px;
     padding: 0.6rem 2rem;
@@ -125,7 +146,8 @@ main .botones_filtro{
     flex-direction: column;
     gap: 10px;
     padding: 3rem;
-    margin-top: 1em; /* === julian: agregado temporalmente solo para nivelar con grid_wrapper_products */
+    margin-top: 1em;
+    /* === julian: agregado temporalmente solo para nivelar con grid_wrapper_products */
 }
 
 .filtro_wrapper ul li {
@@ -142,6 +164,7 @@ main .botones_filtro{
     font-size: 1.2rem;
     font-family: 'Prompt', sans-serif;
 }
+
 /* =====julian: comentado, no cumple ninguna funcion */
 /* .grid_wrapper_products{
     width:100%;
@@ -149,17 +172,19 @@ main .botones_filtro{
 .product_container {
     /* border: 1px solid red; */
     display: grid;
-    /* grid-auto-rows: 21rem; */   /*== julian: no cumple ninguna funcion===*/
+    /* grid-auto-rows: 21rem; */
+    /*== julian: no cumple ninguna funcion===*/
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 1.5em;
     padding: 1em 2em;
     margin-bottom: 2em;
-    
+
 }
 
 .product_container .card_product {
     border: 0.6px solid rgba(170, 170, 170, 0.256);
-    border-radius: 3px;        /* cambie border radius: original 40px */
+    border-radius: 3px;
+    /* cambie border radius: original 40px */
 }
 
 .card_product {
@@ -168,7 +193,7 @@ main .botones_filtro{
     justify-content: center;
     align-items: center;
     gap: 10px;
-    box-shadow: 11px 10px 20px -10px rgba(0,0,0,0.1);
+    box-shadow: 11px 10px 20px -10px rgba(0, 0, 0, 0.1);
     transition: all 100ms ease-in;
 }
 
@@ -191,7 +216,8 @@ main .botones_filtro{
 .card_product .precio {
     color: #cc0000;
     font-weight: 550;
-    margin-bottom: 1em; /*===julian: se cambio padding x margin y 15px x 1em ===*/
+    margin-bottom: 1em;
+    /*===julian: se cambio padding x margin y 15px x 1em ===*/
 }
 
 .card_product .contador {
@@ -221,6 +247,94 @@ main .botones_filtro{
     padding: 5px 10px;
     cursor: pointer;
 }
+/*  ================= VENTANA MODAL =============== */
+.showproduct__modal--container {
+    /* display: none; */
+    position: fixed;
+    background-color: var(--alt-navbar-color);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 80vw;
+    height: 70%;
+    z-index: 9999;
+    padding: 2.5rem 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.2em;
+}
+
+.img__modal{
+    width: 50%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.info__modal {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    max-width: 100%;
+}
+
+.btn-close__modal {
+    position: absolute;
+    background-color: var(--alt-navbar-color);
+    text-align: right;
+    border: none;
+    font-size: 3rem;
+    font-weight: 300;
+    border: 0;
+    top: -5%;
+    right: -3%;
+}
+
+.brand-info__modal{
+    margin: 1.5em 0 0.4em;
+    font-weight: 300
+}
+
+.name-info__modal {
+    margin-bottom: 0.8em;
+    font-size: 1.8em
+}
+
+.text-info__modal {
+    margin-bottom: 0.8em;
+}
+
+.description-info__modal {
+    margin-bottom: 1.8em;
+}
+
+.btn-info__modal {
+    position: absolute;
+    bottom: 0;
+    border-radius: 0;
+    color: var(--alt-font-color);
+    background-color: var(--secondary-color);
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0.7em 0;
+    width: 100%;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+.btn-info__modal:hover {
+    background-color: var(--secondary-color-hover);
+}
+
+
+
+
+
+
 
 
 /* =======julian: comentado el mediaquery, innecesario */
@@ -245,17 +359,18 @@ main .botones_filtro{
         gap: 0.4rem;
         scale: 0.9;
     }
+
     /*======julian: comentado main , no cumple ninguna funcion ====*/
     /* main{
         flex-direction: column;   
     } */
-    
+
     .filtro-cards--container {
         display: grid;
         grid-template-columns: 1fr;
     }
 
-    .filtro_wrapper--container{
+    .filtro_wrapper--container {
         display: none;
     }
 
@@ -264,14 +379,15 @@ main .botones_filtro{
         width: 100%;
     } */
 
-    .botones_filtro{
+    .botones_filtro {
         display: block;
     }
 
-    .botones_filtro button{
+    .botones_filtro button {
         display: block;
     }
 }
+
 /*  comentados los @media = innecesarios */
 /* @media (min-width: 240px) and (max-width:302px) {
     .fondo img {
