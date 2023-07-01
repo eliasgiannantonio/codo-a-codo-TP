@@ -55,10 +55,10 @@ fetch(url, options)
             button.addEventListener("click", () => {
                 const cantidad = parseInt(cantidadElements[index].textContent);
                 const producto = productList[index];
-                
+
                 // Aquí puedes realizar la lógica para agregar el producto al carrito con la cantidad seleccionada
                 agregarAlCarrito(producto); // Llamada a la función agregarAlCarrito
-                
+
                 console.log(`Agregado al carrito: ${producto.name}, Cantidad: ${cantidad}`);
             });
         });

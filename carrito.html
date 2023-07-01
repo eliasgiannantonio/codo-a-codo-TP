@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>runthecode | carrito</title>
-    <script src="https://unpkg.com/vue@next"></script>
-    <title>runthecode | Tienda</title>
+    <title>runthecode | Carrito</title>
     <link rel="shortcut icon" href="img/ico_sneaker_2.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;800;900&display=swap"
-        rel="stylesheet">
+    rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/carrito.css">
+    <script src="https://unpkg.com/vue@next"></script>
+
 </head>
 
 <body>
@@ -39,8 +39,8 @@
             <div class="shop--container">
                 <a href="" class="shop__item"><img class="img__login" src="img/ico_user.png" alt="login"></a>
                 <p>|</p>
-                <a href="./carrito.html" class="shop__item"><img class="img__cart" src="img/ico_shopping_cart.png"
-                        alt="cart"></a>
+                <div id="contador-carrito" v-if="mostrarContador">{{sumarItems()}}</div>
+                <a href="./carrito.html" class="shop__item"><img class="img__cart" src="img/ico_shopping_cart.png" alt="cart"></a>
                 <button id="abrir_menu"><img src="./img/hamburguesa_open.svg" alt=""></button>
             </div>
         </div>
@@ -55,15 +55,14 @@
                     <tr>
                         <th>Imagen</th>
                         <th>Producto</th>
-                        <th>Precio</th>
                         <th>Cantidad</th>
+                        <th>Precio</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in carrito" :key="item.id">
                         <td><img :src="item.img" :alt="'Imagen del producto ' + item.name" style="width: 5em;"></td>
                         <td>{{ item.name }}</td>
-                        <td align="center">{{ item.price }}</td>
                         <td align="center">
                             <div class="contador-cantidad">
                                 <button @click="restarDelCarrito(item)">-</button>
@@ -71,84 +70,98 @@
                                 <button @click="agregarAlCarrito(item)">+</button>
                             </div>
                         </td>
+                        <td align="center">{{ item.price }} €</td>
                     </tr>
+                   
                 </tbody>
             </table>
             <p v-if="carrito.length === 0">No hay productos en el carrito 😔</p>
+            <div class="total--container">
+                <h4 class="total-pedido__text">TOTAL PEDIDO:</h4>
+                <p  class="total-pedido__cant">{{sumarPrecios()}} €</p>
+            </div>
         </div>
+
         <div class="contenedor-centrado">
             <a href="index.html">Menu principal</a>
         </div>
     </div>
-    <script>
+    <script src="./js/script.js"></script>
+    <script src="./js/carrito.js"></script>
+    <!-- <script>
         const URL = "https://jaguero.pythonanywhere.com/"
         const app = Vue.createApp({
             data() {
                 return {
-                    productos: [],
+                    // productos: [],
                     mostrarCarrito: false,
                     carrito: [],
                 }
             },
+            // created() {
+            //     this.obtenerProductos();
+            // },
             created() {
-                this.obtenerProductos();
-            },
-            mounted() {
                 this.obtenerCarrito();
+                
             },
             methods: {
-                obtenerProductos() {
-                    fetch(URL + 'runthecode/productos')
-                        .then(response => response.json())
-                        .then(data => {
-                            this.productos = data
-                        })
-                        .catch(error => {
-                            console.error(URL + 'runthecode/productos', error)
-                            alert('Error al obtener los productos.')
-                        })
-                },
-                agregarAlCarrito(producto) {
+                // obtenerProductos() {
+                //     fetch(URL + 'runthecode/productos')
+                //         .then(response => response.json())
+                //         .then(data => {
+                //             this.productos = data
+                //         })
+                //         .catch(error => {
+                //             console.error(URL + 'runthecode/productos', error)
+                //             alert('Error al obtener los productos.')
+                //         })
+                // },
+                agregarAlCarrito(item) {
                     fetch(URL + 'runthecode/carrito', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                            id: producto.id,
+                            id: item.id,
                             itemsLeft: 1, // Agregamos una unidad al carrito
                         }),
                     })
-                        .then(response => response.json())
+                        .then(function (res){
+                            res.json()
+                        })
+                        // .then(response => response.json())
                         .then(data => {
-                            alert(data.message);
+                            // alert(data.message);
                             // Actualizamos el carrito después de agregar un producto
                             this.obtenerCarrito();
-                            this.obtenerProductos();
+                            // this.obtenerProductos();
                         })
                         .catch(error => {
                             console.error('Error al agregar el producto al carrito:', error);
                             alert('Error al agregar el producto al carrito.');
                         });
                 },
-                restarDelCarrito(producto) {
+                restarDelCarrito(item) {
                     fetch(URL + 'runthecode/carrito', {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                            id: producto.id,
+                            id: item.id,
                             itemsLeft: 1, // Restamos una unidad del carrito
                         }),
                         mode: 'cors',
                     })
                         .then(response => response.json())
                         .then(data => {
-                            alert(data.message);
+                            // alert(data.message);
+                            console.log(data.message)
                             // Actualizamos el carrito después de eliminar un producto
                             this.obtenerCarrito();
-                            this.obtenerProductos();
+                            // this.obtenerProductos();
                         })
                         .catch(error => {
                             console.error('Error al restar el producto del carrito:', error);
@@ -161,17 +174,25 @@
                         .then(data => {
                             this.carrito = data
                             this.mostrarCarrito = true
+                            console.log(this.carrito)
                         })
                         .catch(error => {
                             console.error('Error al obtener el carrito:', error)
                             alert('Error al obtener el carrito.')
                         })
                 },
+                sumarPrecios() {
+                    let total = 0;
+                    for(let item of this.carrito){
+                        total += item.price 
+                    }
+                    return total
+                },
             },
-
         })
         app.mount('#app')
-    </script>
+    </script> -->
+    
 </body>
 
 </html>

@@ -175,7 +175,7 @@ class Carrito:
                 self.cursor.execute(sql)
                 self.conexion.commit()
                 return jsonify({'message': 'Producto eliminado del carrito correctamente.'}), 200
-            return jsonify({'message': 'El producto no se encuentra en el carrito.'}), 404
+        return jsonify({'message': 'El producto no se encuentra en el carrito.'}), 404
 
     def mostrar(self):
         productos_carrito = []

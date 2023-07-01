@@ -1,6 +1,6 @@
 :root {
     --main-font-color: #121212ff;
-    --main-font-link:  #000000;
+    --main-font-link: #000000;
     --alt-font-color: #FFFBF5;
     --main-background-color: #ffffff;
     --alt-navbar-color: #efefef;
@@ -9,8 +9,8 @@
     --inventary-color: #dcb9b2;
     --inventary-alt: #9f8d99;
     --primary--button: #9d2e2e;
-    --primary--button--hover: #631b1b; 
-    --secondary--button--hover: #c04141; 
+    --primary--button--hover: #631b1b;
+    --secondary--button--hover: #c04141;
 }
 
 * {
@@ -23,9 +23,11 @@
 }
 
 body {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-areas: " header header"
+        "nav    main";
+    grid-template-columns: 1.3fr 6fr;
+    grid-template-rows: 5em auto;
     height: 100vh;
     width: 100%;
     max-width: 1800px;
@@ -33,13 +35,14 @@ body {
 }
 
 main {
-    flex: 1 ;
+    grid-area: main;
 }
+
 /* Propiedades generales de los botones */
 button {
     -webkit-appearance: none;
     border-radius: 0;
-    display:  inline-block;
+    display: inline-block;
     font-size: 1rem;
     font-weight: 400;
     text-align: center;
@@ -48,12 +51,12 @@ button {
 /* =====      HEADER SECTION                */
 
 .header--container {
+    grid-area: header;
     background-color: var(--alt-navbar-color);
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex: 0 0 auto;
-    height: 5em;
+    height: 100%;
     width: 100vw;
     max-width: 1800px;
     gap: 5em;
@@ -72,11 +75,11 @@ button {
 
 /* ==== NAV SECTION  ========*/
 .nav--inventario {
-    flex-basis: auto;
+    grid-area: nav;
     display: grid;
     background-color: var(--inventary-color);
-    width: 17%;
-    height: calc(100% - 5em);
+    width: 100%;
+    height: 100%;
 }
 
 .nav_button--inventario {
@@ -112,9 +115,12 @@ section {
     margin-bottom: 1em;
 }
 
+.all-sections {
+    overflow: auto;
+}
+
 input {
     -webkit-appearance: none;
-    /* background-color: #002B5B; */
 }
 
 th {
@@ -130,13 +136,13 @@ td {
     text-align: left;
 }
 
-.all-sections button{
+.all-sections button {
     -webkit-appearance: none;
     /* display: flex; */
     background-color: var(--primary--button);
     margin: 0 auto;
     color: var(--alt-font-color);
-    padding: 0.5em  0.8em;
+    padding: 0.5em 0.8em;
     border: 1px solid transparent;
     border-radius: 8px;
     cursor: pointer;
@@ -149,17 +155,17 @@ td {
     background-color: var(--secondary--button--hover);
 }
 
-.sneaker__img{
+.sneaker__img {
     position: relative;
     height: 4em;
     left: 1em;
     bottom: -2em;
-    transition: all 250ms ease-in ;
+    transition: all 250ms ease-in;
 }
 
-.all-sections button:hover ~ .sneaker__img {
-    transform: rotateZ(45deg) ;
-	transform-origin: bottom botom;
+.all-sections button:active~.sneaker__img {
+    transform: rotateZ(360deg);
+    transform-origin: bottom botom;
 }
 
 .all-sections label {
@@ -168,4 +174,35 @@ td {
     margin-bottom: 0.8em;
 }
 
+/* ======== ESTILANDO INPUTS */
+.all-sections input {
+    padding: 0.6em 0.3em 0.1em;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
 
+}
+
+.all-sections input:focus, textarea:focus {
+    -webkit-appearance: none;
+    background-color: var(--alt-navbar-color);
+}
+
+.input__id {
+    position: relative;
+    width: 4em;
+    text-align: right;
+}
+
+.alta__productos--container .textarea--alta,.textarea--modificar  {
+    margin: 1.3em 0;
+    vertical-align: top;
+}
+
+.all-sections textarea {
+    padding: 0.4em 0.3em 0.1em;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
+    margin: 0.9em 0;
+}
