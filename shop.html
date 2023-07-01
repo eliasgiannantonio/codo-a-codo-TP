@@ -97,8 +97,33 @@
                 </div>
             </div>
             <div class="grid_wrapper_products">
+                
                 <div class="product_container">
-                    <div class="card_product">
+                    <div class="card_product" v-for="producto in productos" :key="producto.id">
+                        <img :src="producto.img" :alt="'Imagen del producto ' + producto.name">
+                        <p class="marca">{{producto.brand}}</p>
+                        <p class="modelo">{{producto.name}}</p>
+                        <p class="precio">{{producto.price}} €</p>
+                        <!-- <div class="contador">
+                            <button class="btn-decrement">-</button>
+                            <span class="cantidad">0</span>
+                            <button class="btn-increment">+</button>
+                        </div> -->
+                        <button class="btn-agregar-carrito" @click="verProducto(producto)">Agregar al carrito</button>
+                    </div>
+
+                    <div class="showproduct__modal--container" v-if="abrirModal">
+                        <img class="img__modal" :src="productoSeleccionado.img" :alt="'Imagen del producto ' + productoSeleccionado.name">
+                        <div class="info__modal">
+                            <button class="btn-close__modal" @click="abrirModal = false">×</button>
+                            <h3 class="brand-info__modal">{{productoSeleccionado.brand}}</h3>
+                            <h2 class="name-info__modal">{{productoSeleccionado.name}}</h2>
+                            <p class="text-info__modal">{{productoSeleccionado.price}} €</p>
+                            <p class="description-info__modal">{{productoSeleccionado.description}}</p>
+                            <button class="btn-info__modal" @click="agregarAlCarrito(productoSeleccionado)">Agregar al carrito</button>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -150,7 +175,7 @@
     </footer>
     
     <script src="./js/script.js"></script>
-    <script src="./js/products.js"></script>
+    <script src="./js/products-vue.js"></script>
 </body>
 
 </html>

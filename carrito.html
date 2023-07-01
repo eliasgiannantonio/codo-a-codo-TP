@@ -56,7 +56,7 @@
                         <th>Imagen</th>
                         <th>Producto</th>
                         <th>Cantidad</th>
-                        <th>Precio</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,7 +70,7 @@
                                 <button @click="agregarAlCarrito(item)">+</button>
                             </div>
                         </td>
-                        <td align="center">{{ item.price }} €</td>
+                        <td align="center">{{item.itemsLeft * item.price}} €</td>
                     </tr>
                    
                 </tbody>
