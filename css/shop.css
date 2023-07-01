@@ -251,15 +251,23 @@ main .botones_filtro {
 .showproduct__modal--container {
     /* display: none; */
     position: fixed;
-    background-color: var(--alt-navbar-color);
+    width: 100vw;
+    height: 100vh;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    display: flex;
+    
+    margin: auto;
+    background-color: #000000a7;
+    z-index: 9999;
+    
+}
+
+.modal__card {
+    background-color: var(--alt-navbar-color);
     margin: auto;
     width: 80vw;
     height: 70%;
-    z-index: 9999;
     padding: 2.5rem 1rem;
     display: flex;
     justify-content: space-evenly;
