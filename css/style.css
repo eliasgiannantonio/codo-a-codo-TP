@@ -123,12 +123,31 @@ header {
 } 
 
 .shop--container {
+    position: relative;;
     display: flex;
     width: 10em;
     justify-content: right;
     align-items: center;
     object-fit: cover;
-    gap: 3px;
+    gap: 0.8em;
+}
+
+#contador-carrito {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -0.7em;
+    right: -0.7em;
+    margin: auto;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50px;
+    font-size: 0.7em;
+    font-weight: 500;
+    color: var(--alt-navbar-color);
+    pointer-events: none;
 }
 
 .shop--container:nth-child(3){

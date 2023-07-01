@@ -8,8 +8,9 @@ const buttonListar = document.querySelector('#listar-productos')
 function hideAllSections() {
     const sections = document.querySelectorAll('section')
     sections.forEach((section) => {
-        if (!section.classList.contains('hidden'))
+        if (!section.classList.contains('hidden')){
             section.classList.add('hidden')
+        }
     })
 }
 
@@ -190,7 +191,9 @@ modify.mount('.modificar__productos--container')
 const app = Vue.createApp({
     data() {
         return {
-            productos: []
+            productos: [],
+            mostrarEncabezadoLista: false,
+            actualizarProductos: false,
         }
     },
 
@@ -207,6 +210,8 @@ const app = Vue.createApp({
                 })
                 .then(data => {
                     this.productos = data
+                    this.mostrarEncabezadoLista = true
+                    this.actualizarProductos = true
                 })
                 .catch(error => {
                     console.log('Error:', error)
@@ -232,6 +237,7 @@ const app = Vue.createApp({
             }
         },
     },
+
 })
 app.mount('.baja__productos--container')
 

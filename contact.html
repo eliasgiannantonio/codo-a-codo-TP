@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>runthecode | Tienda</title>
+    <link rel="shortcut icon" href="img/ico_sneaker_2.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="./css/contact.css">
-    <title>runthecode | Tienda</title>
-    <link rel="shortcut icon" href="img/ico_sneaker_2.ico" type="image/x-icon">
+    <script src="https://unpkg.com/vue@next"></script>  
 </head>
 <body>
     <header>
@@ -35,7 +36,8 @@
             </div>
             <div class="shop--container">
                 <a href="" class="shop__item"><img class="img__login" src="img/ico_user.png" alt="login"></a>
-                <a href="" class="shop__item">|</a>
+                <p>|</p>
+                <div id="contador-carrito" v-if="mostrarContador">{{sumarItems()}}</div>
                 <a href="./carrito.html" class="shop__item"><img class="img__cart" src="img/ico_shopping_cart.png" alt="cart"></a>
                 <button id="abrir_menu"><img src="./img/hamburguesa_open.svg" alt=""></button>
             </div>
