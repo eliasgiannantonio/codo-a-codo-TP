@@ -6,6 +6,10 @@ const shopProducts = Vue.createApp({
             productos: [],
             abrirModal: false,
             productoSeleccionado: [],
+            categoriasUnicas: [],
+            categoriaSeleccionada: [],
+            marcasUnicas: [],
+            marcaSeleccionada: [],
         }
     },
     created() {
@@ -24,6 +28,13 @@ const shopProducts = Vue.createApp({
                 })
                 .then(data => {
                     this.productos = data
+                    // Este es un map solo para generar como prueva un nuevo array solo con los styles de cada objeto
+                    const categorias = this.productos.map(producto => ({ style: producto.style }));
+                    // este metodo filtra las categorias unicas en funcion a los valores de las prop style
+                    this.categoriasUnicas = categorias.filter((item, index) => categorias.findIndex(elemento => elemento.style === item.style) === index);
+
+                    const marcas = this.productos.map(producto => ({ brand: producto.brand }));
+                    this.marcasUnicas = marcas.filter((itemB, index) => marcas.findIndex(elemento1 => elemento1.brand === itemB.brand) === index);
                 })
                 .catch(error => {
                     console.log('Error:', error)
@@ -43,17 +54,18 @@ const shopProducts = Vue.createApp({
                 }),
             })
                 .then(function (res) {
-                    return res.json();})
+                    return res.json();
+                })
                 .then(data => {
-                        alert(data.message);
-                        this.abrirModal = false
-                        productoSeleccionado = []
-                        location.reload();
-                    })
-                    .catch(error => {
-                        console.error('Error al agregar el producto al carrito:', error);
-                        alert('Error al agregar el producto al carrito.');
-                    });
+                    alert(data.message);
+                    this.abrirModal = false
+                    productoSeleccionado = []
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Error al agregar el producto al carrito:', error);
+                    alert('Error al agregar el producto al carrito.');
+                });
         },
         verProducto(producto) {
             this.productoSeleccionado = producto
@@ -62,9 +74,23 @@ const shopProducts = Vue.createApp({
         cerrarModal() {
             this.abrirModal = false
         },
+        filtarCategoria(categoria, marca) {
+            this.categoriaSeleccionada = this.productos.filter(producto => producto.style === categoria.style);
+
+        },
+        quitarCategoria() {
+            this.categoriaSeleccionada = []
+            // this.categoriaSeleccionada = this.categoriaSeleccionada.filter(producto => !this.productos.some(p => p.style === producto.style));
+        },
+        filtrarMarca(marca) {
+            this.categoriaSeleccionada = this.productos.filter(producto => producto.brand === marca.brand);
+        },
+        // quitarMarca() {
+        //     this.categoriaSeleccionada = this.categoriaSeleccionada.filter(producto => !this.productos.some(p => p.brand === producto.brand));
+        // },
 
     },
 
 
 })
-shopProducts.mount('.grid_wrapper_products')
+shopProducts.mount('#app')
