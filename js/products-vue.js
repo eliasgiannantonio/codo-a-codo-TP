@@ -10,6 +10,7 @@ const shopProducts = Vue.createApp({
             categoriaSeleccionada: [],
             marcasUnicas: [],
             marcaSeleccionada: [],
+            busqueda: ''
         }
     },
     created() {
@@ -78,6 +79,17 @@ const shopProducts = Vue.createApp({
             this.categoriaSeleccionada = this.productos.filter(producto => producto.style === categoria.style);
 
         },
+        filtrarProductos() {
+            if (this.busqueda) {
+              const termino = this.busqueda.toLowerCase();
+              this.categoriaSeleccionada = this.productos.filter(producto => {
+                const nombre = producto.name.toLowerCase();
+                return nombre.includes(termino);
+              });
+            } else {
+              this.categoriaSeleccionada = [];
+            }
+        },
         quitarCategoria() {
             this.categoriaSeleccionada = []
             // this.categoriaSeleccionada = this.categoriaSeleccionada.filter(producto => !this.productos.some(p => p.style === producto.style));
@@ -90,6 +102,11 @@ const shopProducts = Vue.createApp({
         // },
 
     },
+    watch: {
+        busqueda() {
+          this.filtrarProductos();
+        }
+      },
 
 
 })

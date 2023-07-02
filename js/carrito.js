@@ -93,11 +93,11 @@ const app = Vue.createApp({
         },
         sumarPrecios() {
             let total = 0;
-            for(let item of this.carrito){
-                total += item.price 
+            for (let item of this.carrito) {
+              total += item.itemsLeft * item.price;
             }
-            return total
-        },
+            return total;
+          }
     },
 })
 app.mount('#app')
