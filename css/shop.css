@@ -95,7 +95,7 @@ button {
     flex-direction: row;
 } */
 
-.searchbar__filtros ul {
+/* .searchbar__filtros ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -107,7 +107,7 @@ button {
     padding: 0 0.8rem;
     border-radius: 2rem;
     color: white;
-}
+} */
 
 main .botones_filtro {
     visibility: hidden;
@@ -159,10 +159,11 @@ main .botones_filtro {
     font-family: 'Prompt', sans-serif;
 }
 
-/* =====julian: comentado, no cumple ninguna funcion */
-/* .grid_wrapper_products{
-    width:100%;
-} */
+.filtro_wrapper li {
+    cursor: pointer;
+}
+
+
 .product_container {
     /* border: 1px solid red; */
     display: grid;
@@ -390,37 +391,3 @@ main .botones_filtro {
     }
 }
 
-/*  comentados los @media = innecesarios */
-/* @media (min-width: 240px) and (max-width:302px) {
-    .fondo img {
-        top: 12px;
-    }
-} */
-/* @media (min-width: 200px) and (max-width:375px) {
-
-    #abrir_menu, #cerrar_menu {
-        display: block;
-        border: none;
-        width: 27px;
-    }
-} */
-/* @media (width: 375px) and (height:667px) {
-    .fondo{
-        top: 62px;
-    }
-}
-@media (width: 280px) and (height:653px) {
-    .fondo{
-        top: 59px;
-    }
-}
-@media (width: 820px) and (height:1180px) {
-    .fondo{
-        top: 117px;
-    }
-}
-@media (width: 768px) and (height:1024px){
-    .fondo{
-        top: 117px;
-    }
-}  */
