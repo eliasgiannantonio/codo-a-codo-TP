@@ -33,7 +33,6 @@ body {
 }
 
 button {
-    -webkit-appearance: none;
     cursor: pointer;
 }
 .searchbar_wrapper {
