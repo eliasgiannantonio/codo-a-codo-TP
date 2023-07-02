@@ -40,14 +40,8 @@ button {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
-    height: 13rem;
-    /* position: relative; */
-    /* display: flex;  */
-    /* julian - comentado - innecesario */
-    /* align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center; */
+    height: 8rem;
+   
 
 }
 
@@ -93,13 +87,13 @@ button {
     color: white;
 }
 
-.searchbar__filtros {
+/* .searchbar__filtros {
     width: 100%;
     z-index: 1;
     display: flex;
     justify-content: center;
     flex-direction: row;
-}
+} */
 
 .searchbar__filtros ul {
     display: flex;

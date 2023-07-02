@@ -45,7 +45,7 @@
             </div>
         </div>
     </header>
-    <main>
+    <main id="app">
         <!--========= meto section de searchbar en el main ================-->
         <section class="searchbar_wrapper">
             <div class="fondo">
@@ -54,7 +54,7 @@
                     <input type="text" placeholder="Buscá tu modelo">
                     <img src="" alt="">
                 </div>
-                <div class="searchbar__filtros">
+                <!-- <div class="searchbar__filtros">
                     <ul>
                         <li>Todos</li>
                         <li>Masculino</li>
@@ -62,7 +62,7 @@
                         <li>De vestir</li>
                         <li>Deportivas</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </section>
         <!-- ===== julian: creo que quedaria mejor usar div para estos botones y no una section completa ===== -->
@@ -73,28 +73,20 @@
         <section class="filtro-cards--container">
             <div class="filtro_wrapper--container">
                 <div class="filtro_wrapper">
-                    <div class="lista_filtro"></div>
-                    <h4>Categoría</h4>
-                    <ul>
-                        <li>Sneakers</li>
-                        <li>Deportivas</li>
-                    </ul>
                     <div class="lista_filtro">
-                        <h4>Marca</h4>
-                        <ul>
-                            <li>Adidas</li>
-                            <li>Converse</li>
-                            <li>Nike</li>
-                            <li>New Balance</li>
+                        <h4>Categoría</h4>
+                        <ul v-for="categoria in categoriasUnicas" :key="categoria.style">
+                            <li @click="filtarCategoria(categoria)">{{categoria.style}} </li>
+                            <button @click="quitarCategoria()"
+                                v-if="categoriasUnicas.length > 0 && categoriaSeleccionada.length > 0 && categoriaSeleccionada[0].style === categoria.style">x</button>
                         </ul>
                     </div>
                     <div class="lista_filtro">
-                        <h4>Talle</h4>
-                        <ul>
-                            <li>4</li>
-                            <li>4.5</li>
-                            <li>5.5</li>
-                            <li>6</li>
+                        <h4>Marca</h4>
+                        <ul v-for="marca in marcasUnicas" :key="marca.brand">
+                            <li @click="filtrarMarca(marca)">{{marca.brand}}</li>
+                            <button @click="quitarCategoria(marca.brand)"
+                                v-if="marcasUnicas.length > 0 && categoriaSeleccionada.length > 0 && categoriaSeleccionada[0].brand === marca.brand">x</button>
                         </ul>
                     </div>
                 </div>
@@ -103,14 +95,19 @@
 
                 <div class="product_container">
                     <div class="card_product" v-for="producto in productos" :key="producto.id"
-                        @click="verProducto(producto)">
+                        @click="verProducto(producto)" v-if="categoriaSeleccionada.length === 0">
                         <img :src="producto.img" :alt="'Imagen del producto ' + producto.name">
                         <p class="marca">{{producto.brand}}</p>
                         <p class="modelo">{{producto.name}}</p>
                         <p class="precio">{{producto.price}} €</p>
-                        
                     </div>
-
+                    <div class="card_product" v-for="productoC in categoriaSeleccionada" :key="productoC.id"
+                        @click="verProducto(productoC)" v-else>
+                        <img :src="productoC.img" :alt="'Imagen del producto ' + productoC.name">
+                        <p class="marca">{{productoC.brand}}</p>
+                        <p class="modelo">{{productoC.name}}</p>
+                        <p class="precio">{{productoC.price}} €</p>
+                    </div>
                     <div class="showproduct__modal--container" v-if="abrirModal" @click="abrirModal = false">
                         <div class="modal__card">
                             <img class="img__modal" :src="productoSeleccionado.img"
