@@ -537,6 +537,10 @@ header {
         width: 45em;
     }
 
+    #contador-carrito {
+        right: 40%;
+    }
+
     .nav {
         display: flex;
         position: absolute;

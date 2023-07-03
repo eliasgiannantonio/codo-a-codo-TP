@@ -75,7 +75,7 @@ const shopProducts = Vue.createApp({
         cerrarModal() {
             this.abrirModal = false
         },
-        filtarCategoria(categoria, marca) {
+        filtarCategoria(categoria) {
             this.categoriaSeleccionada = this.productos.filter(producto => producto.style === categoria.style);
 
         },
@@ -97,9 +97,10 @@ const shopProducts = Vue.createApp({
         filtrarMarca(marca) {
             this.categoriaSeleccionada = this.productos.filter(producto => producto.brand === marca.brand);
         },
-        // quitarMarca() {
-        //     this.categoriaSeleccionada = this.categoriaSeleccionada.filter(producto => !this.productos.some(p => p.brand === producto.brand));
-        // },
+        toggleFiltro() {
+            let element = document.querySelector('.filtro_wrapper--container')
+            return element.classList.toggle('visible')
+        },
 
     },
     watch: {
