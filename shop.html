@@ -36,7 +36,7 @@
                 </nav>
             </div>
             <div class="shop--container">
-                <a href="" class="shop__item"><img class="img__login" src="img/ico_user.png" alt="login"></a>
+                <a href="./inventario.html" class="shop__item"><img class="img__login" src="img/ico_user.png" alt="login"></a>
                 <p>|</p>
                 <div id="contador-carrito" v-if="mostrarContador">{{sumarItems()}}</div>
                 <a href="./carrito.html" class="shop__item"><img class="img__cart" src="img/ico_shopping_cart.png"
@@ -67,18 +67,15 @@
         </section>
         <!-- ===== julian: creo que quedaria mejor usar div para estos botones y no una section completa ===== -->
         <section class="botones_filtro">
-            <button>Filtros</button>
-            <button>Ordenar</button>
+            <button @click="toggleFiltro()" class="boton_filtro">Filtros de búsqueda</button>
         </section>
         <section class="filtro-cards--container">
             <div class="filtro_wrapper--container">
                 <div class="filtro_wrapper">
                     <div class="lista_filtro">
-                        <button @click="quitarCategoria()" v-if="categoriaSeleccionada.length > 0">Eliminar filtro</button>
                         <h4>Categoría</h4>
                         <ul v-for="categoria in categoriasUnicas" :key="categoria.style">
                             <li @click="filtarCategoria(categoria)">{{categoria.style}} </li>
-                            
                         </ul>
                     </div>
                     <div class="lista_filtro">
@@ -88,6 +85,8 @@
                             <!-- <button @click="quitarCategoria(marca.brand)" v-if="marcasUnicas.length > 0 && categoriaSeleccionada.length > 0 && categoriaSeleccionada[0].brand === marca.brand">x</button> -->
                         </ul>
                     </div>
+                    <button @click="quitarCategoria()" v-if="categoriaSeleccionada.length > 0">Eliminar filtro</button>
+
                 </div>
             </div>
             <div class="grid_wrapper_products">
