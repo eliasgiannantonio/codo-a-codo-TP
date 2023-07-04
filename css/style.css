@@ -43,7 +43,7 @@ header {
     z-index: 100;
 }
 
-.header--container  {
+.header--container {
     width: 100%;
     max-width: 1920px;
     display: flex;
@@ -64,14 +64,14 @@ header {
     width: 10rem;
 }
 
-.logo--container{
+.logo--container {
     max-width: 39rem;
     display: flex;
     flex-shrink: 0.7;
     justify-content: center;
 }
 
-.logo--container a{
+.logo--container a {
     display: flex;
     height: 100%;
     align-content: center;
@@ -79,7 +79,8 @@ header {
 }
 
 
-#abrir_menu, #cerrar_menu {
+#abrir_menu,
+#cerrar_menu {
     display: none;
     border: none;
     background: none;
@@ -105,7 +106,8 @@ header {
     position: relative;
     color: black;
 }
-                         /* EFECTO NAV_BTN */
+
+/* EFECTO NAV_BTN */
 .btn__link::after {
     content: '';
     position: absolute;
@@ -120,14 +122,15 @@ header {
 
 .btn__link:hover {
     font-weight: 600;
-} 
+}
 
 .btn__link:hover::after {
     transform: scale(1);
-} 
+}
 
 .shop--container {
-    position: relative;;
+    position: relative;
+    ;
     display: flex;
     width: 10em;
     justify-content: right;
@@ -154,7 +157,7 @@ header {
     pointer-events: none;
 }
 
-.shop--container:nth-child(3){
+.shop--container:nth-child(3) {
     font-weight: 600;
     height: 20px;
 }
@@ -166,7 +169,7 @@ header {
 .img__cart {
     width: 1.5em;
 }
-    
+
 
 /*  MAIN */
 
@@ -177,13 +180,13 @@ header {
     margin: 0 auto;
     justify-content: flex-start;
     background-color: #EA5455;
-    padding: 0.4em 0; 
+    padding: 0.4em 0;
     overflow: hidden;
 }
 
 .animated__text {
     font-size: 150%;
-    font-weight:700;
+    font-weight: 700;
     font-style: oblique;
     white-space: nowrap;
     padding: 0 2em;
@@ -195,33 +198,59 @@ header {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
-    }  
+    }
+}
+
+.banner-container {
+    position: relative;
+    width: 100%;
+    /* height:  13%; */
+    overflow: hidden;
+    margin-bottom: 2em;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.banner-container::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1.5em;
+    background-color: white;
+}
+
+.banner-container video {
+    width: 100%;
+    height: 17%;
 }
 
 .main--section {
-    margin-bottom: 5em;
+    margin-bottom: 10em;
 }
 
 .main--section--container {
-    
+
     display: grid;
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     height: 35em;
     grid-template-areas: 'carousel top'
-                        'carousel bottom';
+        'carousel bottom';
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 2fr 1fr;    
+    grid-template-rows: 2fr 1fr;
 }
 
 /*  Carousel Container */
 .carousel--main--section {
     grid-area: carousel;
     position: relative;
-    width: 100%; 
+    width: 100%;
     height: 100%;
 }
 
@@ -247,7 +276,7 @@ header {
 
 
 .carousel__img {
-    display: block; 
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -261,6 +290,7 @@ header {
     background: transparent;
     border: 0;
     cursor: pointer;
+
 }
 
 .carousel__button--left {
@@ -349,15 +379,15 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
     flex-wrap: wrap;
-    justify-items:center;
+    justify-items: center;
     padding: 0 1em;
     max-width: 1920px;
-    margin: 0 auto  5em auto;
+    margin: 0 auto 8em auto;
 }
 
 .brand--box {
     transition: transform 150ms ease-in-out;
-} 
+}
 
 .brand--box:hover {
     transform: scale(1.1);
@@ -368,20 +398,37 @@ header {
     object-fit: cover;
 }
 
+.banner__bottom--container {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1800px;
+    height: 30em;
+    margin: 0 auto;
+}
+
+.banner__bottom--container img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* newsletter section */
 .subscribe--container {
     border-top: 1px solid lightgrey;
     position: relative;
-    height: 15em;
+    height: 20em;
     width: 100%;
     max-width: 1920px;
-    margin: 0 auto;
+    margin: 0 auto 3em;
+    padding: 4rem 0 3em;
 }
 
 .subscribe--form {
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -429,10 +476,10 @@ header {
 
 .subscribe--email #submit:hover {
     background-color: rgb(58, 58, 59);
-    border: 1px solid  rgb(58, 58, 59);
+    border: 1px solid rgb(58, 58, 59);
 }
 
-.subscribe--checkbox  {
+.subscribe--checkbox {
     display: flex;
     align-items: center;
     font-size: 0.8em;
@@ -462,7 +509,7 @@ header {
 }
 
 .grid__column {
-    margin-top: 3em;  
+    margin-top: 3em;
 }
 
 .grid__column-title {
@@ -482,13 +529,15 @@ header {
 }
 
 
-.column--social ul, .column--payment ul {
+.column--social ul,
+.column--payment ul {
     display: flex;
     padding: 0.3em 0;
     gap: 0.8em;
 }
 
-.card--img,.social--img {
+.card--img,
+.social--img {
     height: 1.7em;
 }
 
@@ -498,41 +547,42 @@ header {
 }
 
 @media only screen and (max-width: 680px) {
-    
+
     /* header section */
 
-    .logo__img{
+    .logo__img {
         top: 27px;
     }
-    
-     .nav--container {
+
+    .nav--container {
         opacity: 0;
         visibility: hidden;
     }
 
-    #abrir_menu, #cerrar_menu{
+    #abrir_menu,
+    #cerrar_menu {
         display: block;
         border: none;
         width: 60px;
-    } 
+    }
 
-    #abrir_menu img{
+    #abrir_menu img {
         background: none;
         width: 30px;
     }
 
-    #cerrar_menu img{
+    #cerrar_menu img {
         background: none;
         width: 20px;
     }
 
-    #cerrar_menu{
+    #cerrar_menu {
         position: relative;
         left: 20px;
     }
 
 
-    .shop--container{
+    .shop--container {
         gap: 9%;
         width: 45em;
     }
@@ -561,34 +611,34 @@ header {
         0% {
             opacity: 0;
         }
-    
+
         100% {
             opacity: 1;
         }
     }
 
-    .nav--container.visible{
+    .nav--container.visible {
         opacity: 1;
         visibility: visible;
         animation: myAnim 1s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 alternate forwards;
     }
 
-    .nav__list{
+    .nav__list {
         flex-direction: column;
         align-items: end;
         gap: 1.4rem;
     }
 
-    .nav__btn{
+    .nav__btn {
         text-align: right;
-        
+
     }
 
-    .btn__link{
+    .btn__link {
         color: #ffffff;
         font-size: 1.1rem;
     }
-    
+
 
 
     /* Main section */
@@ -608,6 +658,7 @@ header {
     .carousel__track {
         position: relative;
     }
+
     .carousel__track-container {
         width: 100%;
         height: 100%;
@@ -615,12 +666,14 @@ header {
 
     .carousel__img {
         width: 100%;
-        object-fit: cover;    
+        object-fit: cover;
     }
 
-    .top--main--section, .bottom--main--section {
+    .top--main--section,
+    .bottom--main--section {
         width: 100%;
     }
+
     .top--main--section h2 {
         font-size: 2.9em;
         letter-spacing: 0em;
@@ -628,6 +681,7 @@ header {
         padding: 0 0.4em;
         margin: 1em 0;
     }
+
     .top--main--section h2::after {
         left: 30%;
         bottom: -0.5em;
@@ -642,6 +696,7 @@ header {
     .shop__btn {
         margin: 0;
     }
+
     .subscribe--section {
         height: 60vh;
     }
@@ -653,10 +708,12 @@ header {
     .subscribe--email {
         gap: 1em;
     }
-    .subscribe--email button#submit, .subscribe--email input#email {
+
+    .subscribe--email button#submit,
+    .subscribe--email input#email {
         border-radius: 5px;
         width: 100%;
-    }   
+    }
 
     /* footer */
     .footer--container {
@@ -675,16 +732,17 @@ header {
     }
 
     .grid__column {
-        height:100%;
+        height: 100%;
     }
 
-    .grid__column-title,.grid__column-item {
+    .grid__column-title,
+    .grid__column-item {
         text-align: center;
         line-height: 1.5rem;
     }
 
     .column--social {
-        margin-bottom: 1em ;
+        margin-bottom: 1em;
     }
 
     .column--social ul {
@@ -696,6 +754,3 @@ header {
     }
 
 }
-
-
-
