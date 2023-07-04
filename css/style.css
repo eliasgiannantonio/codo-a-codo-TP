@@ -230,7 +230,7 @@ header {
 }
 
 .main--section {
-    margin-bottom: 5em;
+    margin-bottom: 10em;
 }
 
 .main--section--container {
@@ -382,7 +382,7 @@ header {
     justify-items: center;
     padding: 0 1em;
     max-width: 1920px;
-    margin: 0 auto 5em auto;
+    margin: 0 auto 8em auto;
 }
 
 .brand--box {
@@ -398,15 +398,32 @@ header {
     object-fit: cover;
 }
 
+.banner__bottom--container {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1800px;
+    height: 30em;
+    margin: 0 auto;
+}
+
+.banner__bottom--container img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* newsletter section */
 .subscribe--container {
     border-top: 1px solid lightgrey;
     position: relative;
-    height: 15em;
+    height: 20em;
     width: 100%;
     max-width: 1920px;
-    margin: 0 auto;
+    margin: 0 auto 3em;
+    padding: 4rem 0 3em;
 }
 
 .subscribe--form {
