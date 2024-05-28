@@ -48,21 +48,21 @@ class Producto:
     def __init__(self, id, name, brand, style, price, itemsLeft, img, description):
         self.id = id
         self.name = name
-        self.brand = brand           
+        self.brand = brand
         self.style = style
         self.price = price
         self.itemsLeft = itemsLeft
         self.img = img
         self.description = description
-    
+
     def modificar(self, new_name, new_brand, new_style, new_price, new_itemsLeft, new_img, new_description):
-        self.name = new_name    
-        self.brand = new_brand         
-        self.price = new_price    
-        self.style = new_style    
-        self.itemsLeft = new_itemsLeft    
-        self.img = new_img    
-        self.description = new_description    
+        self.name = new_name
+        self.brand = new_brand
+        self.price = new_price
+        self.style = new_style
+        self.itemsLeft = new_itemsLeft
+        self.img = new_img
+        self.description = new_description
 
 #===============================================================================
 ##          Inventario // Clase
@@ -72,7 +72,7 @@ class Inventario:
     def __init__(self):
         self.conexion = get_db_connection()
         self.cursor = self.conexion.cursor()
-    
+
     #Corroborar si no crashea con la adicion del __del__ que es para cerrar automáticamente
     # el cursor y la conexión a la base de datos, para asegurarse de que se liberan los recursos adecuadamente.
     def __del__(self):
@@ -117,7 +117,7 @@ class Inventario:
             self.conexion.commit()
             return jsonify({'message': ' Producto eliminado correctamente.'}), 200
         return jsonify({'message': 'Producto no encontrado.'}), 404
-        
+
 
     def listar_productos(self):
         self.cursor.execute("SELECT * FROM productos")
@@ -127,7 +127,7 @@ class Inventario:
             id, name, brand, style, price, itemsLeft, img, description = row
             producto = {'id': id, 'name': name,'brand': brand, 'style': style, 'price': price, 'itemsLeft': itemsLeft, 'img': img, 'description': description}
             productos.append(producto)
-        return jsonify(productos), 200            
+        return jsonify(productos), 200
 
 #===============================================================================
 ##          Carrito // clase
@@ -138,14 +138,14 @@ class Carrito:
         self.conexion = sqlite3.connect(DATABASE)
         self.cursor = self.conexion.cursor()
         self.items = []
-    
+
     def agregar(self, id, itemsLeft, inventario):
         producto = inventario.consultar_producto(id)
         if producto is None:
            return jsonify({'message': 'El producto no existe.'}), 404
         if producto.itemsLeft < itemsLeft:
            return jsonify({'message': 'Cantidad en stock insuficiente.'}), 400
-        
+
         for item in self.items:
             if item.id == id:
                 item.itemsLeft += itemsLeft
@@ -153,15 +153,15 @@ class Carrito:
                 self.cursor.execute(sql)
                 self.conexion.commit()
                 return jsonify({'message': 'Producto agregado al carrito correctamente.'}), 200
-                
-            
+
+
         nuevo_item = Producto(id, producto.name, producto.brand, producto.style, producto.price, itemsLeft, producto.img,  producto.description)
         self.items.append(nuevo_item)
         sql = f'UPDATE productos SET itemsLeft = itemsLeft - {itemsLeft} WHERE id = {id}'
         self.cursor.execute(sql)
         self.conexion.commit()
         return jsonify({'message': 'Producto agregado al carrito correctamente.'}), 200
-    
+
     #ORIGINALMENTE ESTABA el parametro 'inventario' que luego fue eliminado
     def quitar(self, id, itemsLeft, inventario):
         for item in self.items:
@@ -197,7 +197,7 @@ inventario = Inventario() # Instanciamos un inventario
 
 
 #Ruta para obtener los datos de un producto segun su codigo
-@app.route('/productos/<int:id>', methods=['GET'])
+@app.route('/runthecode/productos/<int:id>', methods=['GET'])
 def obtener_producto(id):
     producto = inventario.consultar_producto(id)
     if producto:
@@ -219,12 +219,12 @@ def index():
     return 'Api del Inventario'
 
 #Ruta para obtener la lista de productos del inventario
-@app.route('/productos', methods=['GET'])
+@app.route('/runthecode/productos', methods=['GET'])
 def obtener_productos():
     return inventario.listar_productos()
 
 #Ruta para agregar un producto al inventario
-@app.route('/productos', methods=['POST'])
+@app.route('/runthecode/productos', methods=['POST'])
 def agregar_producto():
     id = request.json.get('id')
     name = request.json.get('name')
@@ -237,7 +237,7 @@ def agregar_producto():
     return inventario.agregar_producto(id, name, brand, style, price, itemsLeft, img, description)
 
 #Ruta para modificar el producto del inventario
-@app.route('/productos/<int:id>', methods=['PUT'])
+@app.route('/runthecode/productos/<int:id>', methods=['PUT'])
 def modificar_producto(id):
     new_name   = request.json.get('name')           #obtiene el valor del campo name
     new_brand = request.json.get('brand')
@@ -249,12 +249,12 @@ def modificar_producto(id):
     return inventario.modificar_producto(id, new_name, new_brand, new_style, new_price, new_itemsLeft, new_img, new_description)
 
 #Ruta para eliminar un procducto del inventario
-@app.route('/productos/<int:id>', methods=['DELETE'])
+@app.route('/runthecode/productos/<int:id>', methods=['DELETE'])
 def eliminar_producto(id):
     return inventario.eliminar_producto(id)
 
 #Ruta para agregar un producto al CARRITO
-@app.route('/carrito', methods=['POST'])
+@app.route('/runthecode/carrito', methods=['POST'])
 def agregar_carrito():
     id = request.json.get('id')
     itemsLeft = request.json.get('itemsLeft')
@@ -262,7 +262,7 @@ def agregar_carrito():
     return carrito.agregar(id, itemsLeft, inventario)
 
 # Ruta para quitar un producto del carrito
-@app.route('/carrito', methods=['DELETE'])
+@app.route('/runthecode/carrito', methods=['DELETE'])
 def quitar_carrito():
     id = request.json.get('id')
     itemsLeft = request.json.get('itemsLeft')
@@ -270,14 +270,31 @@ def quitar_carrito():
     return carrito.quitar(id, itemsLeft, inventario)
 
 #Ruta para obtener el contenido del carrito
-@app.route('/carrito', methods=['GET'])
+@app.route('/runthecode/carrito', methods=['GET'])
 def obtener_carrito():
     return carrito.mostrar()
 
+@app.route('/runthecode/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Obtener los datos del formulario
+        username = request.json.get('username')
+        password = request.json.get('password')
+
+        # Validar las credenciales
+        if username == 'admin' and password == 'admin123':
+            # Credenciales válidas, devolver una respuesta JSON
+            return jsonify({'message': 'Autenticación exitosa', 'success': True}), 200
+
+        # Credenciales inválidas, devolver una respuesta JSON
+        return jsonify({'message': 'Credenciales incorrectas. Inténtalo de nuevo.', 'success': False}), 401
+
+    # Si la solicitud es GET, simplemente muestra la página de inicio de sesión.
+    return render_template('login.html')
+
 #=======================================================
 #       Iniciando el servidor de Flask
-#========================================================   
+#========================================================
 # Finalmente, si estamos ejecutando este archivo, lanzamos app.
 if __name__ == '__main__':      # asegura que el servidor solo se ejecute si el archivo se ejecuta directamente (no cuando se importa como módulo)
-    app.run()
-
+    app.run( port=5051)

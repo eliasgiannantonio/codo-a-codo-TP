@@ -8,7 +8,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
     const URL = "https://jaguero.pythonanywhere.com/"
     // Realizar una solicitud a la API para autenticar al usuario
-    fetch(URL + "runthecode/login", {
+    fetch(URL + "runthecode/login", {   
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: {
